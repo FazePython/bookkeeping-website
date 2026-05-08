@@ -1,0 +1,258 @@
+/* =============================================================
+   SteadyBooks – "Warm Precision" Design System
+   Design Movement: Contemporary editorial + financial wellness
+   Core: Warm white base, deep navy-slate, sage green, warm gold
+   Typography: Playfair Display (display) + DM Sans (body/UI)
+   ============================================================= */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom brand tokens */
+  --color-navy: oklch(0.26 0.07 248);
+  --color-navy-dark: oklch(0.18 0.07 248);
+  --color-navy-light: oklch(0.38 0.07 248);
+  --color-sage: oklch(0.55 0.08 155);
+  --color-sage-light: oklch(0.72 0.06 155);
+  --color-sage-pale: oklch(0.93 0.03 155);
+  --color-gold: oklch(0.68 0.10 75);
+  --color-gold-light: oklch(0.82 0.08 75);
+  --color-warm-white: oklch(0.99 0.005 75);
+  --color-stone: oklch(0.96 0.008 75);
+  --color-stone-dark: oklch(0.92 0.01 75);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.99 0.005 75);
+  --foreground: oklch(0.22 0.04 248);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.04 248);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 248);
+  --primary: oklch(0.26 0.07 248);
+  --primary-foreground: oklch(0.99 0.005 75);
+  --secondary: oklch(0.96 0.008 75);
+  --secondary-foreground: oklch(0.26 0.07 248);
+  --muted: oklch(0.96 0.008 75);
+  --muted-foreground: oklch(0.52 0.04 248);
+  --accent: oklch(0.93 0.03 155);
+  --accent-foreground: oklch(0.26 0.07 248);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.90 0.012 75);
+  --input: oklch(0.90 0.012 75);
+  --ring: oklch(0.26 0.07 248);
+  --chart-1: oklch(0.55 0.08 155);
+  --chart-2: oklch(0.68 0.10 75);
+  --chart-3: oklch(0.26 0.07 248);
+  --chart-4: oklch(0.72 0.06 155);
+  --chart-5: oklch(0.38 0.07 248);
+  --sidebar: oklch(0.99 0.005 75);
+  --sidebar-foreground: oklch(0.22 0.04 248);
+  --sidebar-primary: oklch(0.26 0.07 248);
+  --sidebar-primary-foreground: oklch(0.99 0.005 75);
+  --sidebar-accent: oklch(0.96 0.008 75);
+  --sidebar-accent-foreground: oklch(0.22 0.04 248);
+  --sidebar-border: oklch(0.90 0.012 75);
+  --sidebar-ring: oklch(0.26 0.07 248);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Font utility classes */
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  /* Brand color utilities */
+  .text-navy { color: oklch(0.26 0.07 248); }
+  .text-navy-dark { color: oklch(0.18 0.07 248); }
+  .text-navy-light { color: oklch(0.38 0.07 248); }
+  .text-sage { color: oklch(0.55 0.08 155); }
+  .text-sage-light { color: oklch(0.72 0.06 155); }
+  .text-gold { color: oklch(0.68 0.10 75); }
+  .text-gold-light { color: oklch(0.82 0.08 75); }
+
+  .bg-navy { background-color: oklch(0.26 0.07 248); }
+  .bg-navy-dark { background-color: oklch(0.18 0.07 248); }
+  .bg-navy-light { background-color: oklch(0.38 0.07 248); }
+  .bg-sage { background-color: oklch(0.55 0.08 155); }
+  .bg-sage-light { background-color: oklch(0.72 0.06 155); }
+  .bg-sage-pale { background-color: oklch(0.93 0.03 155); }
+  .bg-gold { background-color: oklch(0.68 0.10 75); }
+  .bg-warm-white { background-color: oklch(0.99 0.005 75); }
+  .bg-stone { background-color: oklch(0.96 0.008 75); }
+  .bg-stone-dark { background-color: oklch(0.92 0.01 75); }
+
+  .border-navy { border-color: oklch(0.26 0.07 248); }
+  .border-sage { border-color: oklch(0.55 0.08 155); }
+  .border-gold { border-color: oklch(0.68 0.10 75); }
+  .border-stone { border-color: oklch(0.92 0.01 75); }
+
+  /* Scroll-reveal animation */
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-slide-up {
+    animation: fadeSlideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+
+  /* Card hover lift */
+  .card-lift {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px -8px oklch(0.26 0.07 248 / 0.15);
+  }
+
+  /* Button fill animation */
+  .btn-fill {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .btn-fill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: oklch(0.18 0.07 248);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: -1;
+  }
+  .btn-fill:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* Testimonial left border accent */
+  .testimonial-accent {
+    border-left: 3px solid oklch(0.68 0.10 75);
+    padding-left: 1.25rem;
+  }
+
+  /* Section divider */
+  .section-rule {
+    width: 3rem;
+    height: 2px;
+    background: oklch(0.68 0.10 75);
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
