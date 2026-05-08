@@ -30,7 +30,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <WouterRouter base="/bookkeeping-website">
+          <WouterRouter>
             <AppRoutes />
           </WouterRouter>
         </TooltipProvider>
