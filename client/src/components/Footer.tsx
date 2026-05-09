@@ -29,10 +29,6 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-gold-light" />
                 team@steadybooks.com
               </a>
-              <a href="tel:+7735170631" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
-                <Phone className="w-4 h-4 text-gold-light" />
-                (773) 517-0631
-              </a>
               <span className="flex items-center gap-2 text-sm text-white/60">
                 <MapPin className="w-4 h-4 text-gold-light" />
                 Available Remotely · Nationwide

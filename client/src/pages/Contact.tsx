@@ -318,22 +318,7 @@ export default function Contact() {
                       </div>
                     </a>
 
-                    <a
-                      href="tel:+7735170631"
-                      className="flex items-center gap-3 group"
-                    >
-                      <div className="w-10 h-10 rounded-xl bg-sage-pale flex items-center justify-center shrink-0 group-hover:bg-sage/20 transition-colors">
-                        <Phone className="w-4.5 h-4.5 text-sage" />
-                      </div>
-                      <div>
-                        <p className="font-body text-xs text-navy/50 mb-0.5">
-                          Phone
-                        </p>
-                        <p className="font-body text-sm font-medium text-navy group-hover:text-sage transition-colors">
-                          (773) 517-0631
-                        </p>
-                      </div>
-                    </a>
+                  
 
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-sage-pale flex items-center justify-center shrink-0">
