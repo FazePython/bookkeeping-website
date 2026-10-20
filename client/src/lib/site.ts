@@ -3,6 +3,8 @@
 export const SITE_URL = "https://www.steady-books.com";
 export const CONTACT_EMAIL = "faizan@steady-books.com";
 export const CALENDLY_URL = "https://calendly.com/faizan-steady-books/30min";
+/** GoatCounter site code. VITE_GOATCOUNTER_CODE overrides this when set. */
+export const GOATCOUNTER_CODE = "steadybooks";
 export const STREET_ADDRESS = "1400 Andrew Parkway";
 export const CITY_LINE = "Allen, TX 75002";
 

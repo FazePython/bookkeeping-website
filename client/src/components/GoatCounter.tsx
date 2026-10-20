@@ -1,11 +1,9 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+import { GOATCOUNTER_CODE } from "@/lib/site";
 
-/**
- * One config value: the GoatCounter site code, such as "steadybooks".
- * Set VITE_GOATCOUNTER_CODE in the environment. An empty value loads nothing.
- */
-const CODE = String(import.meta.env.VITE_GOATCOUNTER_CODE ?? "").trim();
+/** Env value wins when it is set. An empty value keeps the site.ts default. */
+const CODE = String(import.meta.env.VITE_GOATCOUNTER_CODE ?? "").trim() || GOATCOUNTER_CODE;
 
 function trackerIsConfigured(code: string) {
   return /^[a-z0-9]+$/i.test(code);
@@ -23,7 +21,7 @@ declare global {
 }
 
 /**
- * Loads GoatCounter only when VITE_GOATCOUNTER_CODE is a site code.
+ * Loads GoatCounter for the configured site code.
  * Counts the first view and each later SPA navigation, including the query string.
  */
 export default function GoatCounter() {
