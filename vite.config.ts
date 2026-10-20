@@ -3,8 +3,9 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import fs from "node:fs";
 import path from "node:path";
-import { defineConfig, type Plugin, type ViteDevServer } from "vite";
+import { defineConfig, loadEnv, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
+import { canonicalUrl, ROUTE_SEO } from "./client/src/lib/site";
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
@@ -203,7 +204,128 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;");
+}
+
+function applyRouteSeo(html: string, route: { path: string; title: string; description: string }) {
+  const url = canonicalUrl(route.path);
+  const title = escapeHtml(route.title);
+  const description = escapeHtml(route.description);
+  return html
+    .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
+    .replace(
+      /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
+      `<meta name="description" content="${description}" />`,
+    )
+    .replace(
+      /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
+      `<link rel="canonical" href="${url}" />`,
+    )
+    .replace(
+      /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
+      `<meta property="og:title" content="${title}" />`,
+    )
+    .replace(
+      /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
+      `<meta property="og:description" content="${description}" />`,
+    )
+    .replace(
+      /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
+      `<meta property="og:url" content="${url}" />`,
+    )
+    .replace(
+      /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/,
+      `<meta name="twitter:title" content="${title}" />`,
+    )
+    .replace(
+      /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/,
+      `<meta name="twitter:description" content="${description}" />`,
+    );
+}
+
+/** Inject Umami only when both public env vars are real values, never the %VITE_*% placeholder. */
+function vitePluginOptionalAnalytics(): Plugin {
+  return {
+    name: "optional-analytics",
+    transformIndexHtml() {
+      const mode = process.env.NODE_ENV === "production" ? "production" : "development";
+      const fileEnv = loadEnv(mode, PROJECT_ROOT, "VITE_");
+      const endpoint = (process.env.VITE_ANALYTICS_ENDPOINT || fileEnv.VITE_ANALYTICS_ENDPOINT || "").trim();
+      const websiteId = (process.env.VITE_ANALYTICS_WEBSITE_ID || fileEnv.VITE_ANALYTICS_WEBSITE_ID || "").trim();
+      if (!endpoint || !websiteId || endpoint.includes("%") || websiteId.includes("%")) {
+        return;
+      }
+      return [
+        {
+          tag: "script",
+          attrs: {
+            defer: true,
+            src: `${endpoint.replace(/\/$/, "")}/umami`,
+            "data-website-id": websiteId,
+          },
+          injectTo: "body" as const,
+        },
+      ];
+    },
+  };
+}
+
+/**
+ * GitHub Pages serves a directory index for clean URLs, and 404.html for unknown paths.
+ * Each real route gets its own index.html so a direct load returns 200 with that route's
+ * title, description, canonical, and Open Graph tags. The existing CNAME is copied into
+ * the Pages artifact unchanged so a deploy does not drop the custom domain.
+ */
+function vitePluginGithubPages(): Plugin {
+  return {
+    name: "github-pages-routes",
+    apply: "build",
+    closeBundle() {
+      const outDir = path.resolve(PROJECT_ROOT, "dist/public");
+      const indexPath = path.join(outDir, "index.html");
+      if (!fs.existsSync(indexPath)) return;
+
+      const built = fs.readFileSync(indexPath, "utf8");
+      const home = ROUTE_SEO.find((route) => route.path === "/") ?? ROUTE_SEO[0];
+      const homeHtml = applyRouteSeo(built, home);
+      fs.writeFileSync(indexPath, homeHtml);
+
+      for (const route of ROUTE_SEO) {
+        if (route.path === "/") continue;
+        const dir = path.join(outDir, route.path);
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, "index.html"), applyRouteSeo(homeHtml, route));
+      }
+
+      const notFound = applyRouteSeo(homeHtml, {
+        path: "/",
+        title: "Page not found | SteadyBooks",
+        description: "That page is not part of the SteadyBooks site.",
+      }).replace("</head>", '    <meta name="robots" content="noindex" />\n  </head>');
+      fs.writeFileSync(path.join(outDir, "404.html"), notFound);
+
+      const cnamePath = path.resolve(PROJECT_ROOT, "CNAME");
+      if (fs.existsSync(cnamePath)) {
+        fs.copyFileSync(cnamePath, path.join(outDir, "CNAME"));
+      }
+    },
+  };
+}
+
+const plugins = [
+  react(),
+  tailwindcss(),
+  jsxLocPlugin(),
+  vitePluginManusRuntime(),
+  vitePluginManusDebugCollector(),
+  vitePluginStorageProxy(),
+  vitePluginOptionalAnalytics(),
+  vitePluginGithubPages(),
+];
 
 export default defineConfig({
   base: "/", 

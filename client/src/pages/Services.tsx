@@ -1,174 +1,85 @@
-/* =============================================================
-   Services Page – SteadyBooks
-   Design: Warm Precision – detailed service cards, clean layout
-   ============================================================= */
-import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
-import {
-  CalendarCheck, CreditCard, Receipt, TrendingUp, BarChart3,
-  Settings, RefreshCw, Clock, FileText, Users, ArrowRight, CheckCircle2,
-} from "lucide-react";
+import Seo from "@/components/Seo";
+import ConsultLink from "@/components/ConsultLink";
+import { ROUTE_SEO } from "@/lib/site";
 
-function Reveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
-  const { ref, visible } = useScrollReveal();
-  return (
-    <div
-      ref={ref as React.RefObject<HTMLDivElement>}
-      className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-7"} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-}
+const seo = ROUTE_SEO.find((route) => route.path === "/services")!;
 
 const services = [
   {
-    icon: CalendarCheck,
-    title: "Monthly Bookkeeping",
-    desc: "Consistent, accurate bookkeeping every month so your records are always current and up to date. I categorize every transaction, reconcile accounts, and deliver clean books on a reliable schedule.",
-    includes: ["Transaction categorization", "Account reconciliation", "Monthly close process", "Digital record keeping"],
+    title: "Monthly bookkeeping",
+    body: "I categorize your transactions and reconcile your bank and credit card accounts every month.",
   },
   {
-    icon: CreditCard,
-    title: "Bank & Credit Card Reconciliation",
-    desc: "Every transaction matched and verified against your bank and credit card statements so your books reflect reality — no discrepancies, no surprises.",
-    includes: ["Bank statement matching", "Credit card reconciliation", "Discrepancy identification", "Cleared transaction verification"],
+    title: "Catch-up and cleanup",
+    body: "I get books that are months behind, or set up wrong, back on track.",
   },
   {
-    icon: Receipt,
-    title: "Expense Tracking",
-    desc: "All expenses categorized and organized so you always know exactly where your money is going. Proper expense tracking is essential for budgeting, tax deductions, and business decisions.",
-    includes: ["Expense categorization", "Receipt management", "Vendor tracking", "Tax deduction identification"],
+    title: "Monthly financial reports",
+    body: "You'll know what you earned, what you spent, and where you stand.",
   },
   {
-    icon: TrendingUp,
-    title: "Income Tracking",
-    desc: "Every dollar of revenue recorded clearly and accurately so you can see your business growth, identify your best income streams, and plan for the future.",
-    includes: ["Revenue recording", "Invoice tracking", "Payment reconciliation", "Income trend analysis"],
+    title: "QuickBooks Online setup and support",
+    body: "I set up your QuickBooks the right way from day one.",
   },
   {
-    icon: BarChart3,
-    title: "Financial Reports",
-    desc: "Easy-to-understand profit & loss statements, balance sheets, and cash flow reports delivered monthly so you always know where your business stands financially.",
-    includes: ["Profit & Loss statement", "Balance sheet", "Cash flow report", "Custom reporting"],
+    title: "Tax-preparer-ready books",
+    body: "Your records are organized and ready to hand to your tax preparer.",
   },
   {
-    icon: Settings,
-    title: "QuickBooks Setup & Support",
-    desc: "Get set up correctly from day one, or let me clean up and optimize an existing QuickBooks account. Proper setup saves hours of frustration down the road.",
-    includes: ["Initial account setup", "Chart of accounts customization", "Bank feed connection", "Ongoing support & training"],
-  },
-  {
-    icon: RefreshCw,
-    title: "Bookkeeping Cleanup",
-    desc: "Messy, disorganized, or inaccurate books transformed into clean, organized, accurate records. Perfect for businesses that have fallen behind or inherited a bookkeeping mess.",
-    includes: ["Full account review", "Error correction", "Transaction reclassification", "Reconciliation catch-up"],
-  },
-  {
-    icon: Clock,
-    title: "Catch-Up Bookkeeping",
-    desc: "Months or even years behind on your bookkeeping? I'll get you caught up quickly and accurately so you have a complete financial picture and can move forward with confidence.",
-    includes: ["Historical data entry", "Multi-month reconciliation", "Tax year preparation", "Backlog elimination"],
-  },
-  {
-    icon: FileText,
-    title: "Tax-Ready Organization",
-    desc: "Year-end records organized, categorized, and ready to hand off to your tax preparer. Make tax season stress-free with properly organized small business bookkeeping.",
-    includes: ["Year-end close", "1099 preparation support", "Tax document organization", "CPA-ready reports"],
-  },
-  {
-    icon: Users,
-    title: "Payroll Support",
-    desc: "Payroll recorded and reconciled accurately in your books so your team is paid correctly and your records reflect every payroll transaction.",
-    includes: ["Payroll transaction recording", "Payroll reconciliation", "Payroll liability tracking", "Year-end W-2 support"],
+    title: "Payroll support and 1099 preparation",
+    body: "I take care of the paperwork side so you don't have to.",
   },
 ];
+
+const cta =
+  "inline-flex items-center justify-center gap-2 font-body font-semibold text-sm bg-navy text-white px-7 py-4 rounded-lg hover:bg-navy-dark transition-all shadow-md";
 
 export default function Services() {
   return (
     <div className="min-h-screen bg-warm-white">
+      <Seo title={seo.title} description={seo.description} path={seo.path} />
       <Navbar />
-
-      {/* Page Header */}
       <section className="pt-32 pb-16 bg-stone">
-        <div className="container">
-          <Reveal>
-            <div className="max-w-3xl">
-              <span className="section-rule" />
-              <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-navy leading-tight mb-5">
-                Bookkeeping Services
-              </h1>
-              <p className="font-body text-lg text-navy/65 leading-relaxed mb-6">
-                From monthly bookkeeping to one-time cleanup projects, I offer comprehensive bookkeeping help designed to keep your finances organized, accurate, and stress-free.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 font-body font-semibold text-sm bg-navy text-white px-6 py-3.5 rounded-lg hover:bg-navy-dark transition-all shadow-sm"
-              >
-                Book a Free Consultation
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </Reveal>
+        <div className="container max-w-3xl">
+          <span className="section-rule" />
+          <h1 className="font-display font-bold text-4xl sm:text-5xl text-navy leading-tight mb-5">
+            What I do
+          </h1>
+          <p className="font-body text-lg text-navy/70 leading-relaxed">
+            Bookkeeping for freelancers, new LLCs, and small businesses from a QuickBooks Certified ProAdvisor.
+          </p>
         </div>
       </section>
-
-      {/* Services Grid */}
-      <section className="py-20 lg:py-28 bg-warm-white">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
-            {services.map((service, i) => (
-              <Reveal key={service.title} delay={i * 60}>
-                <div className="bg-white rounded-2xl p-7 shadow-sm border border-stone-dark card-lift h-full">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-sage-pale flex items-center justify-center shrink-0">
-                      <service.icon className="w-5 h-5 text-sage" />
-                    </div>
-                    <div>
-                      <h2 className="font-display font-semibold text-xl text-navy mb-1">{service.title}</h2>
-                    </div>
-                  </div>
-                  <p className="font-body text-sm text-navy/65 leading-relaxed mb-5">{service.desc}</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {service.includes.map((item) => (
-                      <div key={item} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-sage shrink-0" />
-                        <span className="font-body text-xs text-navy/60">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
+      <section className="py-16 lg:py-24">
+        <div className="container max-w-3xl">
+          <ul className="space-y-5">
+            {services.map((service) => (
+              <li key={service.title} className="bg-white border border-stone-dark rounded-2xl p-6 shadow-sm">
+                <h2 className="font-display font-semibold text-xl text-navy mb-2">{service.title}</h2>
+                <p className="font-body text-sm text-navy/75 leading-relaxed">{service.body}</p>
+              </li>
             ))}
+          </ul>
+          <p className="mt-8 font-body text-sm text-navy/80 italic">
+            SteadyBooks provides bookkeeping only. Tax filing and tax advice are not included.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <ConsultLink className={cta}>
+              Book a free consult
+              <ArrowRight className="w-4 h-4" />
+            </ConsultLink>
+            <a
+              href="/#pricing"
+              className="inline-flex items-center justify-center gap-2 font-body font-semibold text-sm border-2 border-navy text-navy px-7 py-4 rounded-lg hover:bg-stone transition-all"
+            >
+              See pricing
+            </a>
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-navy">
-        <div className="container text-center">
-          <Reveal>
-            <span className="block w-12 h-0.5 bg-gold mx-auto mb-6" />
-            <h2 className="font-display font-bold text-3xl sm:text-4xl text-white leading-tight mb-4">
-              Not Sure Which Service You Need?
-            </h2>
-            <p className="font-body text-base text-white/65 max-w-lg mx-auto mb-8">
-              Let's talk. A free consultation is the best way to figure out exactly what your books need and how I can help.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 font-body font-semibold text-sm bg-white text-navy px-7 py-4 rounded-lg hover:bg-stone transition-all shadow-md"
-            >
-              Book a Free Consultation
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );

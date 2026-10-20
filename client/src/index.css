@@ -241,12 +241,6 @@
     transform: scaleX(1);
   }
 
-  /* Testimonial left border accent */
-  .testimonial-accent {
-    border-left: 3px solid oklch(0.68 0.10 75);
-    padding-left: 1.25rem;
-  }
-
   /* Section divider */
   .section-rule {
     width: 3rem;
