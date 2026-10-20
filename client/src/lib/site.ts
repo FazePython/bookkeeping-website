@@ -54,6 +54,18 @@ export const ROUTE_SEO: RouteSeo[] = [
     description:
       "How SteadyBooks collects, uses, and deletes the name, email, phone number, and business name you send through the contact form. Last updated October 20, 2026.",
   },
+  {
+    path: "/tax-ready",
+    title: "Tax-Ready Books by Feb 15 | SteadyBooks",
+    description:
+      "Catch-up bookkeeping and clean, tax-preparer-ready year-end books by February 15. $750 for the year-end package, plus $150 for each month behind. Book a free consult.",
+  },
+  {
+    path: "/1099",
+    title: "Form 1099-NEC Explained | SteadyBooks",
+    description:
+      "Plain-language bookkeeping notes on Form 1099-NEC for small businesses and freelancers who pay contractors: who generally files, the late-January deadline, and W-9s.",
+  },
 ];
 
 export function canonicalUrl(path: string): string {

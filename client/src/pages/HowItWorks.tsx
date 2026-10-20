@@ -44,7 +44,7 @@ export default function HowItWorks() {
               <li>$750 for the year-end tax-ready package</li>
               <li>Plus $150 catch-up add-on for each month your books are behind</li>
               <li>50% upfront to reserve your spot, with the balance due on delivery</li>
-              <li>Sign up by Jan 15 to be ready by Feb 15</li>
+              <li>Book early to make sure your books are ready by Feb 15.</li>
               <li>Catch-up bookkeeping: $150 for each month behind</li>
               <li>Cleanup, for books that exist but are messy or wrong: $200 per month of records</li>
               <li>Catch-up and cleanup projects have a $500 minimum, with 50% upfront</li>

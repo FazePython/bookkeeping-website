@@ -37,6 +37,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
+        env:
+          # Empty until Faizan adds the GitHub Actions variable. The site stays tracker-free.
+          VITE_GOATCOUNTER_CODE: ${{ vars.VITE_GOATCOUNTER_CODE }}
         run: pnpm run build
 
       - name: Upload GitHub Pages artifact
