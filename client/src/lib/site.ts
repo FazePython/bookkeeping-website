@@ -58,14 +58,15 @@ export const ROUTE_SEO: RouteSeo[] = [
 
 export function canonicalUrl(path: string): string {
   if (path === "/" || path === "") return `${SITE_URL}/`;
-  return `${SITE_URL}${path}`;
+  const withSlash = path.endsWith("/") ? path : `${path}/`;
+  return `${SITE_URL}${withSlash}`;
 }
 
 export const LOCAL_BUSINESS_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "SteadyBooks",
-  url: SITE_URL,
+  url: `${SITE_URL}/`,
   email: CONTACT_EMAIL,
   address: {
     "@type": "PostalAddress",
