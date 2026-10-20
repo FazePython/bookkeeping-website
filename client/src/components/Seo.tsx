@@ -45,7 +45,7 @@ export default function Seo({
     upsertMeta(
       "property",
       "og:image:alt",
-      "SteadyBooks, QuickBooks Certified ProAdvisor. Bookkeeping for freelancers and small businesses in Allen, TX.",
+      "SteadyBooks, QuickBooks Certified ProAdvisor. Fully remote bookkeeping for freelancers and small businesses across the US.",
     );
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:image", "https://www.steady-books.com/og-image.png");
