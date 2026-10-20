@@ -13,10 +13,10 @@ import Reveal from "@/components/Reveal";
 import Seo from "@/components/Seo";
 import ConsultLink from "@/components/ConsultLink";
 import Headshot from "@/components/Headshot";
+import SignupDeadline from "@/components/SignupDeadline";
 import { HOME_DESCRIPTION, HOME_TITLE } from "@/lib/site";
 
-const HERO_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663632058860/JjT2V3R6aeSv6g5ZrmmUKT/hero-bookkeeping-RCQBWfneg44Y6385vaHY2y.webp";
+const HERO_IMG = "/images/hero-workspace.svg";
 
 const facts = [
   "QuickBooks Certified ProAdvisor",
@@ -128,7 +128,9 @@ export default function Home() {
             <div>
               <img
                 src={HERO_IMG}
-                alt="Bookkeeping workspace with a notebook and calculator"
+                alt="Illustration of a notebook and calculator"
+                width={960}
+                height={640}
                 className="w-full h-auto rounded-2xl shadow-xl"
               />
               <ul className="mt-4 grid grid-cols-1 gap-2">
@@ -187,12 +189,14 @@ export default function Home() {
                 "$750 for the year-end tax-ready package",
                 "Plus $150 catch-up add-on for each month your books are behind",
                 "50% upfront to reserve your spot, with the balance due on delivery",
-                "Sign up by January 15 to be ready by Feb 15",
               ].map((item) => (
                 <li key={item} className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-white/90">
                   {item}
                 </li>
               ))}
+              <li className="bg-white/5 border border-gold/50 rounded-xl px-4 py-3 font-body text-sm text-white/90">
+                <SignupDeadline onDark />
+              </li>
             </ul>
             <p className="font-body text-sm text-white/70 italic leading-relaxed mb-8">
               To hit the Feb 15 date, I need your bank and credit card statements and records promptly. Tax filing is not included.

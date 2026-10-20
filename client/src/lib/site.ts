@@ -7,18 +7,10 @@ export const STREET_ADDRESS = "1400 Andrew Parkway";
 export const CITY_LINE = "Allen, TX 75002";
 
 /**
- * Headshot slot. Replace this file with a real photo of Faizan.
- * Do not point this at the logo.
+ * TODO: add Faizan's headshot before merge.
+ * Empty placeholder file, not a photo. Do not point this at the logo.
  */
 export const HEADSHOT_SRC = "/images/faizan-headshot.svg";
-
-/**
- * Free form endpoint. No API key is stored in the repo.
- * The address owner must open FormSubmit's one-time activation email
- * before a submission is actually delivered. The form only reports
- * success when that service returns success.
- */
-export const FORM_SUBMIT_URL = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
 export const HOME_TITLE =
   "SteadyBooks | QuickBooks Certified ProAdvisor in Allen, TX";
