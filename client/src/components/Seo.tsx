@@ -39,7 +39,16 @@ export default function Seo({
     upsertMeta("property", "og:url", url);
     upsertMeta("property", "og:type", "website");
     upsertMeta("property", "og:site_name", "SteadyBooks");
-    upsertMeta("name", "twitter:card", "summary");
+    upsertMeta("property", "og:image", "https://www.steady-books.com/og-image.png");
+    upsertMeta("property", "og:image:width", "1200");
+    upsertMeta("property", "og:image:height", "627");
+    upsertMeta(
+      "property",
+      "og:image:alt",
+      "SteadyBooks, QuickBooks Certified ProAdvisor. Bookkeeping for freelancers and small businesses in Allen, TX.",
+    );
+    upsertMeta("name", "twitter:card", "summary_large_image");
+    upsertMeta("name", "twitter:image", "https://www.steady-books.com/og-image.png");
     upsertMeta("name", "twitter:title", title);
     upsertMeta("name", "twitter:description", description);
     upsertCanonical(url);
