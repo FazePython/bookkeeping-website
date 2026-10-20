@@ -44,7 +44,7 @@ export default function Contact() {
                   <MapPin className="w-4 h-4 text-sage" />
                 </div>
                 <div>
-                  <p className="font-body text-xs text-navy/50 mb-0.5">Office</p>
+                  <p className="font-body text-xs text-navy/50 mb-0.5">Address</p>
                   <p className="font-body text-sm font-medium text-navy">
                     {STREET_ADDRESS}
                     <br />

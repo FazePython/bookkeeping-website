@@ -35,7 +35,7 @@ export default function About() {
             I started SteadyBooks because small business owners pour everything into their work, and too many of them lose sleep over their books. I want to use what I know about numbers to give them clarity, confidence, and a lot less stress, so they can get back to doing what they love.
           </p>
           <p className="font-body text-base text-navy/75 leading-relaxed mb-8">
-            I'm based in Allen, Texas, and I work with freelancers, new LLCs, and small businesses remotely, anywhere in the U.S. When you work with me, you work with me directly.
+            SteadyBooks is fully remote, serving freelancers, new LLCs, and small businesses across the US. When you work with me, you work with me directly.
           </p>
           <ConsultLink className={cta}>
             Book a free consult with me

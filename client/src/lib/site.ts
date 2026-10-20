@@ -9,10 +9,10 @@ export const STREET_ADDRESS = "1400 Andrew Parkway";
 export const CITY_LINE = "Allen, TX 75002";
 
 export const HOME_TITLE =
-  "SteadyBooks | QuickBooks Certified ProAdvisor in Allen, TX";
+  "SteadyBooks | QuickBooks Certified ProAdvisor | Remote Bookkeeping Across the US";
 
 export const HOME_DESCRIPTION =
-  "Remote bookkeeping for freelancers, new LLCs & small businesses. Catch-up, cleanup & monthly books from Allen, TX. Get tax-ready by Feb 15. Free consult.";
+  "Fully remote bookkeeping for freelancers, new LLCs, and small businesses across the US. Catch-up, cleanup, and monthly books. Get tax-ready by Feb 15. Free consult.";
 
 export type RouteSeo = {
   path: string;
@@ -30,7 +30,7 @@ export const ROUTE_SEO: RouteSeo[] = [
     path: "/about",
     title: "About Faizan Qureshi | SteadyBooks",
     description:
-      "Faizan Qureshi is a QuickBooks Certified ProAdvisor in Allen, TX. He started SteadyBooks in October 2026 and works with clients remotely across the U.S.",
+      "Faizan Qureshi is a QuickBooks Certified ProAdvisor. He started SteadyBooks in October 2026 and serves small businesses fully remote across the US.",
   },
   {
     path: "/services",
@@ -46,7 +46,7 @@ export const ROUTE_SEO: RouteSeo[] = [
   },
   {
     path: "/contact",
-    title: "Contact SteadyBooks | Allen, TX",
+    title: "Contact SteadyBooks | Remote Bookkeeping",
     description:
       "Email faizan@steady-books.com or book a free 30-minute consult. SteadyBooks is at 1400 Andrew Parkway, Allen, TX 75002.",
   },
@@ -90,5 +90,5 @@ export const LOCAL_BUSINESS_JSON_LD = {
     postalCode: "75002",
     addressCountry: "US",
   },
-  areaServed: "US",
+  areaServed: "United States",
 };
