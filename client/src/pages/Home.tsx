@@ -7,6 +7,7 @@ import {
   Settings,
   Users,
 } from "lucide-react";
+import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -102,6 +103,12 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
+              <a
+                href="#pricing"
+                className="inline-block font-body text-sm font-semibold text-navy underline decoration-gold underline-offset-4 mb-5 hover:text-navy-dark"
+              >
+                Founding clients: 15% off your first 6 months
+              </a>
               <p className="inline-flex items-center gap-2 bg-sage-pale text-sage font-body text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-sage inline-block" />
                 QuickBooks Certified ProAdvisor
@@ -187,7 +194,7 @@ export default function Home() {
                 "$750 for the year-end tax-ready package",
                 "Plus $150 catch-up add-on for each month your books are behind",
                 "50% upfront to reserve your spot, with the balance due on delivery",
-                "Sign up by Jan 15 to be ready by Feb 15",
+                "Book early to make sure your books are ready by Feb 15.",
               ].map((item) => (
                 <li key={item} className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-white/90">
                   {item}
@@ -197,10 +204,15 @@ export default function Home() {
             <p className="font-body text-sm text-white/70 italic leading-relaxed mb-8">
               To hit the Feb 15 date, I need your bank and credit card statements and records promptly. Tax filing is not included.
             </p>
-            <ConsultLink className={lightCta}>
-              Start my catch-up
-              <ArrowRight className="w-4 h-4" />
-            </ConsultLink>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/tax-ready" className={lightCta}>
+                See the tax-ready package
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <ConsultLink className="inline-flex items-center justify-center gap-2 font-body font-semibold text-sm border-2 border-white text-white px-7 py-4 rounded-lg hover:bg-white/10 transition-all">
+                Book a free consult
+              </ConsultLink>
+            </div>
           </div>
         </div>
       </section>

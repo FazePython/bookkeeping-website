@@ -9,6 +9,8 @@ const pageLinks = [
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/#pricing" },
   { label: "How It Works", href: "/how-it-works" },
+  { label: "Tax-Ready", href: "/tax-ready" },
+  { label: "1099s", href: "/1099" },
   { label: "Contact", href: "/contact" },
   { label: "Privacy Policy", href: "/privacy" },
 ];

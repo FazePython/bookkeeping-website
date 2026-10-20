@@ -6,16 +6,20 @@ import { Route, Switch, Router as WouterRouter, useLocation } from "wouter";
 import { useBrowserLocation } from "wouter/use-browser-location";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import GoatCounter from "./components/GoatCounter";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
+import TaxReady from "./pages/TaxReady";
+import Form1099 from "./pages/Form1099";
 
 function useNormalizedLocation() {
   const [path, navigate] = useBrowserLocation();
-  const normalized = path.length > 1 ? path.replace(/\/+$/, "") : path;
+  const pathname = path.split("?")[0].split("#")[0];
+  const normalized = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
   return [normalized, navigate] as ReturnType<typeof useBrowserLocation>;
 }
 
@@ -48,6 +52,8 @@ function AppRoutes() {
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/contact" component={Contact} />
       <Route path="/privacy" component={Privacy} />
+      <Route path="/tax-ready" component={TaxReady} />
+      <Route path="/1099" component={Form1099} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -62,6 +68,7 @@ function App() {
           <Toaster />
           <WouterRouter hook={useNormalizedLocation}>
             <HashScroll />
+            <GoatCounter />
             <AppRoutes />
           </WouterRouter>
         </TooltipProvider>

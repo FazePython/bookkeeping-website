@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Tax-Ready", href: "/tax-ready" },
   { label: "Pricing", href: "/#pricing" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Contact", href: "/contact" },
@@ -49,7 +50,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
             {navLinks.map((link) => {
               const active = link.href === "/" ? location === "/" : location === link.href;
               const className = `font-body text-sm font-medium transition-colors ${
