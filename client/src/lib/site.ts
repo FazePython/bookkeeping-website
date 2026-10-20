@@ -6,12 +6,6 @@ export const CALENDLY_URL = "https://calendly.com/faizan-steady-books/30min";
 export const STREET_ADDRESS = "1400 Andrew Parkway";
 export const CITY_LINE = "Allen, TX 75002";
 
-/**
- * TODO: add Faizan's headshot before merge.
- * Empty placeholder file, not a photo. Do not point this at the logo.
- */
-export const HEADSHOT_SRC = "/images/faizan-headshot.svg";
-
 export const HOME_TITLE =
   "SteadyBooks | QuickBooks Certified ProAdvisor in Allen, TX";
 

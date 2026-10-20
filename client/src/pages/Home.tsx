@@ -12,8 +12,6 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import Seo from "@/components/Seo";
 import ConsultLink from "@/components/ConsultLink";
-import Headshot from "@/components/Headshot";
-import SignupDeadline from "@/components/SignupDeadline";
 import { HOME_DESCRIPTION, HOME_TITLE } from "@/lib/site";
 
 const HERO_IMG = "/images/hero-workspace.svg";
@@ -189,14 +187,12 @@ export default function Home() {
                 "$750 for the year-end tax-ready package",
                 "Plus $150 catch-up add-on for each month your books are behind",
                 "50% upfront to reserve your spot, with the balance due on delivery",
+                "Sign up by Jan 15 to be ready by Feb 15",
               ].map((item) => (
                 <li key={item} className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-white/90">
                   {item}
                 </li>
               ))}
-              <li className="bg-white/5 border border-gold/50 rounded-xl px-4 py-3 font-body text-sm text-white/90">
-                <SignupDeadline onDark />
-              </li>
             </ul>
             <p className="font-body text-sm text-white/70 italic leading-relaxed mb-8">
               To hit the Feb 15 date, I need your bank and credit card statements and records promptly. Tax filing is not included.
@@ -360,29 +356,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 bg-warm-white">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <Headshot />
-            <div>
-              <h2 className="font-display font-bold text-3xl sm:text-4xl text-navy leading-tight mb-5">
-                Hi, I'm Faizan Qureshi.
-              </h2>
-              <p className="font-body text-base text-navy/75 leading-relaxed mb-4">
-                I'm a QuickBooks Certified ProAdvisor, and I started SteadyBooks in October 2026 to help small business owners feel in control of their numbers.
-              </p>
-              <p className="font-body text-base text-navy/75 leading-relaxed mb-4">
-                I started SteadyBooks because small business owners pour everything into their work, and too many of them lose sleep over their books. I want to use what I know about numbers to give them clarity, confidence, and a lot less stress, so they can get back to doing what they love.
-              </p>
-              <p className="font-body text-base text-navy/75 leading-relaxed mb-8">
-                I'm based in Allen, Texas, and I work with freelancers, new LLCs, and small businesses remotely, anywhere in the U.S. When you work with me, you work with me directly.
-              </p>
-              <ConsultLink className={primaryCta}>
-                Book a free consult with me
-                <ArrowRight className="w-4 h-4" />
-              </ConsultLink>
-            </div>
-          </div>
+      <section id="about" className="py-20 lg:py-28 bg-warm-white">
+        <div className="container max-w-3xl">
+          <span className="section-rule" />
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-navy leading-tight mb-5">
+            Hi, I'm Faizan Qureshi.
+          </h2>
+          <p className="font-body text-base text-navy/75 leading-relaxed mb-4">
+            I'm a QuickBooks Certified ProAdvisor, and I started SteadyBooks in October 2026 to help small business owners feel in control of their numbers.
+          </p>
+          <p className="font-body text-base text-navy/75 leading-relaxed mb-4">
+            I started SteadyBooks because small business owners pour everything into their work, and too many of them lose sleep over their books. I want to use what I know about numbers to give them clarity, confidence, and a lot less stress, so they can get back to doing what they love.
+          </p>
+          <p className="font-body text-base text-navy/75 leading-relaxed mb-8">
+            I'm based in Allen, Texas, and I work with freelancers, new LLCs, and small businesses remotely, anywhere in the U.S. When you work with me, you work with me directly.
+          </p>
+          <ConsultLink className={primaryCta}>
+            Book a free consult with me
+            <ArrowRight className="w-4 h-4" />
+          </ConsultLink>
         </div>
       </section>
 
