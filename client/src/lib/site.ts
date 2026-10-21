@@ -80,7 +80,7 @@ export const LOCAL_BUSINESS_JSON_LD = {
   name: "SteadyBooks",
   url: `${SITE_URL}/`,
   email: CONTACT_EMAIL,
-  image: `${SITE_URL}/og-image.png`,
+  image: `${SITE_URL}/og-image-v2.png`,
   logo: `${SITE_URL}/favicon.svg`,
   description: HOME_DESCRIPTION,
   areaServed: "United States",
