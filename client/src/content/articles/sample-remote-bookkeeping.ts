@@ -11,6 +11,7 @@ export const article: Article = {
   description:
     "100% remote, serving clients across the US. Draft sample for the articles system. Not published.",
   author: "Faizan Qureshi",
+  publishDate: "2026-10-21",
   datePublished: "2026-10-21",
   dateModified: "2026-10-21",
   draft: true,

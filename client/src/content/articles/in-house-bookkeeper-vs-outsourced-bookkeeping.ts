@@ -6,6 +6,7 @@ export const article: Article = {
   description:
     'In-house bookkeeper or outsourced bookkeeping? A fair comparison of cost, control, coverage and skills, with BLS pay data and a checklist to decide.',
   author: "Faizan Qureshi",
+  publishDate: "2026-10-21",
   datePublished: "2026-10-21",
   dateModified: "2026-10-21",
   body: `Should you hire your own bookkeeper or outsource bookkeeping to an outside bookkeeper or bookkeeping firm? For most small businesses, outsourcing costs less and covers more, as long as you don't need someone in the office every day. An in-house hire makes more sense once you have enough daily, on-site work to fill a real job, like handling paper checks, running a front desk register or chasing invoices by phone.

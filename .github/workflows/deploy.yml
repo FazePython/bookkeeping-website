@@ -1,10 +1,13 @@
 name: Deploy to GitHub Pages
 
 on:
+  schedule:
+    # 11:15 and 12:15 UTC. That is 6:15 AM and 7:15 AM Central during CDT, and 5:15 AM and 6:15 AM during CST.
+    - cron: '15 11 * * *'
+    - cron: '15 12 * * *'
   push:
     branches:
       - main
-
   workflow_dispatch:
 
 permissions:
