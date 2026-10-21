@@ -19,7 +19,7 @@ const HERO_IMG = "/images/hero-workspace.svg";
 
 const facts = [
   "QuickBooks Certified ProAdvisor",
-  "Fully remote",
+  "100% remote",
   "Any US state",
 ];
 
@@ -117,7 +117,7 @@ export default function Home() {
                 Behind on your books? Get tax-ready by Feb 15.
               </h1>
               <p className="font-body text-lg text-navy/70 leading-relaxed mb-8">
-                Bookkeeping for freelancers, new LLCs, and small businesses from a QuickBooks Certified ProAdvisor. SteadyBooks is fully remote, serving small businesses across the US. Get clarity about your numbers, confidence at tax time, and a lot less stress.
+                Bookkeeping for freelancers, new LLCs, and small businesses from a QuickBooks Certified ProAdvisor. SteadyBooks is 100% remote, serving clients across the US. Get clarity about your numbers, confidence at tax time, and a lot less stress.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <ConsultLink className={primaryCta}>
@@ -387,7 +387,7 @@ export default function Home() {
             I started SteadyBooks because small business owners pour everything into their work, and too many of them lose sleep over their books. I want to use what I know about numbers to give them clarity, confidence, and a lot less stress, so they can get back to doing what they love.
           </p>
           <p className="font-body text-base text-navy/75 leading-relaxed mb-8">
-            SteadyBooks is fully remote, serving freelancers, new LLCs, and small businesses across the US. When you work with me, you work with me directly.
+            SteadyBooks is 100% remote, serving clients across the US, including freelancers, new LLCs, and small businesses. When you work with me, you work with me directly.
           </p>
           <ConsultLink className={primaryCta}>
             Book a free consult with me

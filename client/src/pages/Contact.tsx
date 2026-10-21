@@ -1,10 +1,10 @@
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
 import ContactForm from "@/components/ContactForm";
 import ConsultLink from "@/components/ConsultLink";
-import { CITY_LINE, CONTACT_EMAIL, ROUTE_SEO, STREET_ADDRESS } from "@/lib/site";
+import { CONTACT_EMAIL, ROUTE_SEO } from "@/lib/site";
 
 const seo = ROUTE_SEO.find((route) => route.path === "/contact")!;
 
@@ -39,19 +39,6 @@ export default function Contact() {
                   </p>
                 </div>
               </a>
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-sage-pale flex items-center justify-center shrink-0">
-                  <MapPin className="w-4 h-4 text-sage" />
-                </div>
-                <div>
-                  <p className="font-body text-xs text-navy/50 mb-0.5">Address</p>
-                  <p className="font-body text-sm font-medium text-navy">
-                    {STREET_ADDRESS}
-                    <br />
-                    {CITY_LINE}
-                  </p>
-                </div>
-              </div>
               <ConsultLink className="inline-flex items-center justify-center gap-2 font-body font-semibold text-sm bg-navy text-white px-6 py-3.5 rounded-lg hover:bg-navy-dark transition-all shadow-sm">
                 Book a free consult
                 <ArrowRight className="w-4 h-4" />

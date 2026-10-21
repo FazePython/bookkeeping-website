@@ -45,7 +45,7 @@ export default function Seo({
     upsertMeta(
       "property",
       "og:image:alt",
-      "SteadyBooks, QuickBooks Certified ProAdvisor. Fully remote bookkeeping for freelancers and small businesses across the US.",
+      "SteadyBooks, QuickBooks Certified ProAdvisor. 100% remote, serving clients across the US. Bookkeeping for freelancers and small businesses.",
     );
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:image", "https://www.steady-books.com/og-image.png");
