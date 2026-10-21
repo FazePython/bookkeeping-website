@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
-import { CITY_LINE, CONTACT_EMAIL, ROUTE_SEO, STREET_ADDRESS } from "@/lib/site";
+import { CONTACT_EMAIL, ROUTE_SEO } from "@/lib/site";
 
 const seo = ROUTE_SEO.find((route) => route.path === "/privacy")!;
 
@@ -63,7 +63,6 @@ export default function Privacy() {
             <section>
               <h2 className="font-display font-semibold text-2xl text-navy mb-2">Contact.</h2>
               <p>
-                SteadyBooks, {STREET_ADDRESS}, {CITY_LINE},{" "}
                 <a className="underline text-navy" href={`mailto:${CONTACT_EMAIL}`}>
                   {CONTACT_EMAIL}
                 </a>

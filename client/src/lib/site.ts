@@ -5,14 +5,12 @@ export const CONTACT_EMAIL = "faizan@steady-books.com";
 export const CALENDLY_URL = "https://calendly.com/faizan-steady-books/30min";
 /** GoatCounter site code. VITE_GOATCOUNTER_CODE overrides this when set. */
 export const GOATCOUNTER_CODE = "steadybooks";
-export const STREET_ADDRESS = "1400 Andrew Parkway";
-export const CITY_LINE = "Allen, TX 75002";
 
 export const HOME_TITLE =
-  "SteadyBooks | QuickBooks Certified ProAdvisor | Remote Bookkeeping Across the US";
+  "SteadyBooks | QuickBooks Certified ProAdvisor | 100% Remote, Serving Clients Across the US";
 
 export const HOME_DESCRIPTION =
-  "Fully remote bookkeeping for freelancers, new LLCs, and small businesses across the US. Catch-up, cleanup, and monthly books. Get tax-ready by Feb 15. Free consult.";
+  "100% remote, serving clients across the US. Bookkeeping for freelancers, new LLCs, and small businesses. Catch-up, cleanup, and monthly books. Get tax-ready by Feb 15. Free consult.";
 
 export type RouteSeo = {
   path: string;
@@ -30,7 +28,7 @@ export const ROUTE_SEO: RouteSeo[] = [
     path: "/about",
     title: "About Faizan Qureshi | SteadyBooks",
     description:
-      "Faizan Qureshi is a QuickBooks Certified ProAdvisor. He started SteadyBooks in October 2026 and serves small businesses fully remote across the US.",
+      "Faizan Qureshi is a QuickBooks Certified ProAdvisor. He started SteadyBooks in October 2026. SteadyBooks is 100% remote, serving clients across the US.",
   },
   {
     path: "/services",
@@ -48,7 +46,7 @@ export const ROUTE_SEO: RouteSeo[] = [
     path: "/contact",
     title: "Contact SteadyBooks | Remote Bookkeeping",
     description:
-      "Email faizan@steady-books.com or book a free 30-minute consult. SteadyBooks is at 1400 Andrew Parkway, Allen, TX 75002.",
+      "Email faizan@steady-books.com or book a free 30-minute consult.",
   },
   {
     path: "/privacy",
@@ -78,17 +76,12 @@ export function canonicalUrl(path: string): string {
 
 export const LOCAL_BUSINESS_JSON_LD = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   name: "SteadyBooks",
   url: `${SITE_URL}/`,
   email: CONTACT_EMAIL,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: STREET_ADDRESS,
-    addressLocality: "Allen",
-    addressRegion: "TX",
-    postalCode: "75002",
-    addressCountry: "US",
-  },
+  image: `${SITE_URL}/og-image.png`,
+  logo: `${SITE_URL}/favicon.svg`,
+  description: HOME_DESCRIPTION,
   areaServed: "United States",
 };

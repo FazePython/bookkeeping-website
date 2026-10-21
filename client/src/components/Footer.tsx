@@ -1,7 +1,7 @@
 import { Link } from "wouter";
-import { BookOpen, Mail, MapPin } from "lucide-react";
+import { BookOpen, Mail } from "lucide-react";
 import ConsultLink from "@/components/ConsultLink";
-import { CITY_LINE, CONTACT_EMAIL, STREET_ADDRESS } from "@/lib/site";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 const pageLinks = [
   { label: "Home", href: "/" },
@@ -33,12 +33,6 @@ export default function Footer() {
               SteadyBooks, bookkeeping for freelancers and small businesses
             </p>
             <div className="mt-5 flex flex-col gap-2.5">
-              <p className="flex items-start gap-2 text-sm text-white/70">
-                <MapPin className="w-4 h-4 text-gold-light mt-0.5 shrink-0" />
-                <span>
-                  {STREET_ADDRESS}, {CITY_LINE}
-                </span>
-              </p>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
