@@ -8,9 +8,9 @@ Articles live in `client/src/content/articles/`, one TypeScript file per article
 
 - `slug`: lowercase words separated by hyphens. This becomes `/articles/<slug>/`.
 - `title`
-- `description`: the meta description. Lead with “100% remote, serving clients across the US”.
+- `description`: the meta description, copied verbatim from the approved article.
 - `datePublished` and `dateModified`: `YYYY-MM-DD`
-- `body`: plain text. A blank line starts a new paragraph.
+- `body`: the article text. Blank lines separate paragraphs. Headings, lists, bold, links, and a markdown table are rendered in the page. A `**About the author**` section is shown in an author box.
 - `draft`: set `true` until the text is approved.
 
 `draft: true` files stay in the repo and are skipped. They are not listed, not prerendered, and not added to the sitemap. `client/src/content/articles/sample-remote-bookkeeping.ts` is that kind of sample. Do not publish it.
