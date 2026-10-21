@@ -39,16 +39,16 @@ export default function Seo({
     upsertMeta("property", "og:url", url);
     upsertMeta("property", "og:type", "website");
     upsertMeta("property", "og:site_name", "SteadyBooks");
-    upsertMeta("property", "og:image", "https://www.steady-books.com/og-image.png");
+    upsertMeta("property", "og:image", "https://www.steady-books.com/og-image-v2.png");
     upsertMeta("property", "og:image:width", "1200");
-    upsertMeta("property", "og:image:height", "627");
+    upsertMeta("property", "og:image:height", "630");
     upsertMeta(
       "property",
       "og:image:alt",
       "SteadyBooks, QuickBooks Certified ProAdvisor. 100% remote, serving clients across the US. Bookkeeping for freelancers and small businesses.",
     );
     upsertMeta("name", "twitter:card", "summary_large_image");
-    upsertMeta("name", "twitter:image", "https://www.steady-books.com/og-image.png");
+    upsertMeta("name", "twitter:image", "https://www.steady-books.com/og-image-v2.png");
     upsertMeta("name", "twitter:title", title);
     upsertMeta("name", "twitter:description", description);
     upsertCanonical(url);
