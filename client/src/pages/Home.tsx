@@ -374,6 +374,12 @@ export default function Home() {
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-navy leading-tight mb-5">
             Hi, I'm Faizan Qureshi.
           </h2>
+          <ul className="mb-6 space-y-2 font-body text-base text-navy/85 leading-relaxed">
+            <li>Faizan Qureshi, Owner.</li>
+            <li>Bachelor's degree in accounting.</li>
+            <li>4+ years of hands-on bookkeeping and finance experience.</li>
+            <li>QuickBooks Certified ProAdvisor.</li>
+          </ul>
           <p className="font-body text-base text-navy/75 leading-relaxed mb-4">
             I'm a QuickBooks Certified ProAdvisor, and I started SteadyBooks in October 2026 to help small business owners feel in control of their numbers.
           </p>

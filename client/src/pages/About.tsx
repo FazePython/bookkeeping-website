@@ -28,6 +28,12 @@ export default function About() {
       </section>
       <section id="about" className="py-16 lg:py-24">
         <div className="container max-w-3xl">
+          <ul className="mb-6 space-y-2 font-body text-base text-navy/85 leading-relaxed">
+            <li>Faizan Qureshi, Owner.</li>
+            <li>Bachelor's degree in accounting.</li>
+            <li>4+ years of hands-on bookkeeping and finance experience.</li>
+            <li>QuickBooks Certified ProAdvisor.</li>
+          </ul>
           <p className="font-body text-lg text-navy/75 leading-relaxed mb-5">
             I'm a QuickBooks Certified ProAdvisor, and I started SteadyBooks in October 2026 to help small business owners feel in control of their numbers.
           </p>
