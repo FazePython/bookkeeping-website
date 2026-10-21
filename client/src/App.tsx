@@ -15,6 +15,8 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import TaxReady from "./pages/TaxReady";
 import Form1099 from "./pages/Form1099";
+import Articles from "./pages/Articles";
+import Article from "./pages/Article";
 
 function useNormalizedLocation() {
   const [path, navigate] = useBrowserLocation();
@@ -54,19 +56,28 @@ function AppRoutes() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/tax-ready" component={TaxReady} />
       <Route path="/1099" component={Form1099} />
+      <Route path="/articles" component={Articles} />
+      <Route path="/articles/:slug" component={Article} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
-function App() {
+function staticLocationHook(ssrPath: string) {
+  return function useStaticLocation(): ReturnType<typeof useBrowserLocation> {
+    return [ssrPath, () => {}];
+  };
+}
+
+function App({ ssrPath }: { ssrPath?: string } = {}) {
+  const locationHook = ssrPath ? staticLocationHook(ssrPath) : useNormalizedLocation;
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <WouterRouter hook={useNormalizedLocation}>
+          <WouterRouter hook={locationHook}>
             <HashScroll />
             <GoatCounter />
             <AppRoutes />

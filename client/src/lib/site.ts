@@ -66,6 +66,12 @@ export const ROUTE_SEO: RouteSeo[] = [
     description:
       "Plain-language bookkeeping notes on Form 1099-NEC for small businesses and freelancers who pay contractors: who generally files, the late-January deadline, and W-9s.",
   },
+  {
+    path: "/articles",
+    title: "Articles | SteadyBooks",
+    description:
+      "100% remote, serving clients across the US. Bookkeeping notes from SteadyBooks for freelancers, new LLCs, and small businesses.",
+  },
 ];
 
 export function canonicalUrl(path: string): string {

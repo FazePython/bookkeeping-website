@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Tax-Ready", href: "/tax-ready" },
   { label: "Pricing", href: "/#pricing" },
   { label: "How It Works", href: "/how-it-works" },
+  { label: "Articles", href: "/articles" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -52,7 +53,12 @@ export default function Navbar() {
 
           <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
             {navLinks.map((link) => {
-              const active = link.href === "/" ? location === "/" : location === link.href;
+              const active =
+                link.href === "/"
+                  ? location === "/"
+                  : link.href === "/articles"
+                    ? location === "/articles" || location.startsWith("/articles/")
+                    : location === link.href;
               const className = `font-body text-sm font-medium transition-colors ${
                 active ? "text-navy" : "text-navy/60 hover:text-navy"
               }`;

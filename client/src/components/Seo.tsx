@@ -25,10 +25,14 @@ export default function Seo({
   title,
   description,
   path,
+  ogType = "website",
+  jsonLd,
 }: {
   title: string;
   description: string;
   path: string;
+  ogType?: "website" | "article";
+  jsonLd?: object;
 }) {
   useEffect(() => {
     const url = canonicalUrl(path);
@@ -37,7 +41,7 @@ export default function Seo({
     upsertMeta("property", "og:title", title);
     upsertMeta("property", "og:description", description);
     upsertMeta("property", "og:url", url);
-    upsertMeta("property", "og:type", "website");
+    upsertMeta("property", "og:type", ogType);
     upsertMeta("property", "og:site_name", "SteadyBooks");
     upsertMeta("property", "og:image", "https://www.steady-books.com/og-image-v2.png");
     upsertMeta("property", "og:image:width", "1200");
@@ -52,7 +56,19 @@ export default function Seo({
     upsertMeta("name", "twitter:title", title);
     upsertMeta("name", "twitter:description", description);
     upsertCanonical(url);
-  }, [title, description, path]);
+
+    const id = "page-jsonld";
+    const existing = document.getElementById(id);
+    if (!jsonLd) {
+      existing?.remove();
+      return;
+    }
+    const script = existing ?? document.createElement("script");
+    script.id = id;
+    script.setAttribute("type", "application/ld+json");
+    script.textContent = JSON.stringify(jsonLd);
+    if (!existing) document.head.appendChild(script);
+  }, [title, description, path, ogType, jsonLd]);
 
   return null;
 }

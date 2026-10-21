@@ -3,9 +3,10 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import { defineConfig, loadEnv, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
-import { canonicalUrl, ROUTE_SEO } from "./client/src/lib/site";
+import { canonicalUrl } from "./client/src/lib/site";
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
@@ -211,8 +212,11 @@ function escapeHtml(value: string) {
     .replace(/</g, "&lt;");
 }
 
-function applyRouteSeo(html: string, route: { path: string; title: string; description: string }) {
-  const url = canonicalUrl(route.path);
+function applyRouteSeo(
+  html: string,
+  route: { path: string; canonicalPath?: string; title: string; description: string },
+) {
+  const url = canonicalUrl(route.canonicalPath ?? route.path);
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
   return html
@@ -274,39 +278,80 @@ function vitePluginOptionalAnalytics(): Plugin {
   };
 }
 
+type PrerenderModule = {
+  render: (url: string) => string;
+  prerenderRoutes: () => Array<{
+    path: string;
+    canonicalPath?: string;
+    title: string;
+    description: string;
+    ogType: "website" | "article";
+    jsonLd?: unknown;
+    noindex?: boolean;
+    file: string;
+  }>;
+  sitemapXml: () => string;
+};
+
 /**
  * GitHub Pages serves a directory index for clean URLs, and 404.html for unknown paths.
- * Each real route gets its own index.html so a direct load returns 200 with that route's
- * title, description, canonical, and Open Graph tags. The existing CNAME is copied into
- * the Pages artifact unchanged so a deploy does not drop the custom domain.
+ * The client build renders each route to static HTML with renderToString, then keeps that
+ * route's title, description, canonical, and Open Graph tags. The existing CNAME is copied
+ * into the Pages artifact unchanged so a deploy does not drop the custom domain.
  */
 function vitePluginGithubPages(): Plugin {
   return {
     name: "github-pages-routes",
     apply: "build",
-    closeBundle() {
+    async closeBundle() {
+      if (this.environment.config.build.ssr) return;
+
       const outDir = path.resolve(PROJECT_ROOT, "dist/public");
       const indexPath = path.join(outDir, "index.html");
       if (!fs.existsSync(indexPath)) return;
 
-      const built = fs.readFileSync(indexPath, "utf8");
-      const home = ROUTE_SEO.find((route) => route.path === "/") ?? ROUTE_SEO[0];
-      const homeHtml = applyRouteSeo(built, home);
-      fs.writeFileSync(indexPath, homeHtml);
-
-      for (const route of ROUTE_SEO) {
-        if (route.path === "/") continue;
-        const dir = path.join(outDir, route.path);
-        fs.mkdirSync(dir, { recursive: true });
-        fs.writeFileSync(path.join(dir, "index.html"), applyRouteSeo(homeHtml, route));
+      const ssrEntry = path.resolve(PROJECT_ROOT, "dist/ssr/entry-server.js");
+      if (!fs.existsSync(ssrEntry)) {
+        throw new Error("Missing dist/ssr/entry-server.js. Run the SSR build before the client build.");
       }
 
-      const notFound = applyRouteSeo(homeHtml, {
-        path: "/",
-        title: "Page not found | SteadyBooks",
-        description: "That page is not part of the SteadyBooks site.",
-      }).replace("</head>", '    <meta name="robots" content="noindex" />\n  </head>');
-      fs.writeFileSync(path.join(outDir, "404.html"), notFound);
+      const template = fs.readFileSync(indexPath, "utf8");
+      if (!template.includes('<div id="root"></div>')) {
+        throw new Error("Built index.html has no empty #root placeholder.");
+      }
+
+      const prerender = (await import(pathToFileURL(ssrEntry).href)) as PrerenderModule;
+      const routes = prerender.prerenderRoutes();
+
+      for (const route of routes) {
+        const markup = prerender.render(route.path);
+        if (!markup.includes("<h1")) {
+          throw new Error(`Prerender for ${route.path} did not include an h1.`);
+        }
+        let html = template.replace('<div id="root"></div>', `<div id="root">${markup}</div>`);
+        html = applyRouteSeo(html, route);
+        if (route.ogType === "article") {
+          html = html.replace(
+            '<meta property="og:type" content="website" />',
+            '<meta property="og:type" content="article" />',
+          );
+        }
+        if (route.jsonLd) {
+          const json = JSON.stringify(route.jsonLd).replace(/</g, "\\u003c");
+          html = html.replace(
+            "</head>",
+            `    <script id="page-jsonld" type="application/ld+json">${json}</script>\n  </head>`,
+          );
+        }
+        if (route.noindex) {
+          html = html.replace("</head>", '    <meta name="robots" content="noindex" />\n  </head>');
+        }
+        const file = path.join(outDir, route.file);
+        fs.mkdirSync(path.dirname(file), { recursive: true });
+        fs.writeFileSync(file, html);
+      }
+
+      fs.writeFileSync(path.join(outDir, "sitemap.xml"), prerender.sitemapXml());
 
       const cnamePath = path.resolve(PROJECT_ROOT, "CNAME");
       if (fs.existsSync(cnamePath)) {
@@ -327,7 +372,7 @@ const plugins = [
   vitePluginGithubPages(),
 ];
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   base: "/", 
   plugins,
   resolve: {
@@ -340,7 +385,7 @@ export default defineConfig({
   envDir: path.resolve(import.meta.dirname),
   root: path.resolve(import.meta.dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(import.meta.dirname, isSsrBuild ? "dist/ssr" : "dist/public"),
     emptyOutDir: true,
   },
   server: {
@@ -361,4 +406,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));
