@@ -1,12 +1,14 @@
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
+import esbuild from "esbuild";
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { defineConfig, loadEnv, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 import { canonicalUrl } from "./client/src/lib/site";
+import { resolvePublishToday, selectPublished } from "./client/src/content/publishSchedule";
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
@@ -373,7 +375,55 @@ function vitePluginGithubPages(): Plugin {
   };
 }
 
+const PUBLISHED_ARTICLES_ID = "virtual:published-articles";
+
+type ArticleModule = {
+  article?: {
+    slug?: string;
+    title?: string;
+    publishDate: string;
+    datePublished?: string;
+    draft?: boolean;
+  };
+};
+
+/**
+ * Reads article files in Node, then emits a module containing only articles whose
+ * publishDate is on or before today in America/Chicago. Future files are not imported,
+ * so their text, titles, and slugs stay out of the client and SSR bundles.
+ */
+function vitePluginPublishedArticles(): Plugin {
+  const resolvedId = `\0${PUBLISHED_ARTICLES_ID}`;
+  return {
+    name: "published-articles",
+    resolveId(id) {
+      if (id === PUBLISHED_ARTICLES_ID) return resolvedId;
+    },
+    async load(id) {
+      if (id !== resolvedId) return null;
+      const today = resolvePublishToday(process.env.BUILD_DATE);
+      const dir = path.resolve(PROJECT_ROOT, "client/src/content/articles");
+      const files = fs.readdirSync(dir).filter((name) => name.endsWith(".ts")).sort();
+      const loaded: ArticleModule["article"][] = [];
+      for (const name of files) {
+        const source = fs.readFileSync(path.join(dir, name), "utf8");
+        const transformed = await esbuild.transform(source, { loader: "ts", format: "esm" });
+        const mod = (await import(
+          `data:text/javascript;base64,${Buffer.from(transformed.code).toString("base64")}`
+        )) as ArticleModule;
+        if (!mod.article) {
+          throw new Error(`${name} does not export an article.`);
+        }
+        loaded.push(mod.article);
+      }
+      const published = selectPublished(loaded, today);
+      return `export const publishedArticleData = ${JSON.stringify(published)};\n`;
+    },
+  };
+}
+
 const plugins = [
+  vitePluginPublishedArticles(),
   react(),
   tailwindcss(),
   jsxLocPlugin(),

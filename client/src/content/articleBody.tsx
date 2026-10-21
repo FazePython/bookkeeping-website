@@ -9,7 +9,7 @@ type Block =
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "hr" };
 
-const inlinePattern = /\*\*([^*]+)\*\*|\[([^\]]+)\]\(([^)]+)\)/g;
+const inlinePattern = /`([^`]+)`|\*\*([^*]+)\*\*|\[([^\]]+)\]\(([^)]+)\)/g;
 
 export function renderInline(text: string, keyPrefix: string): ReactNode[] {
   const nodes: ReactNode[] = [];
@@ -21,17 +21,23 @@ export function renderInline(text: string, keyPrefix: string): ReactNode[] {
     const start = match.index;
     if (start > last) nodes.push(text.slice(last, start));
     if (match[1] !== undefined) {
-      nodes.push(<strong key={`${keyPrefix}-b${index}`}>{match[1]}</strong>);
+      nodes.push(
+        <code key={`${keyPrefix}-c${index}`} className="font-body">
+          {match[1]}
+        </code>,
+      );
+    } else if (match[2] !== undefined) {
+      nodes.push(<strong key={`${keyPrefix}-b${index}`}>{match[2]}</strong>);
     } else {
       nodes.push(
         <a
           key={`${keyPrefix}-a${index}`}
-          href={match[3]}
+          href={match[4]}
           target="_blank"
           rel="noopener noreferrer"
           className="font-semibold text-navy underline decoration-gold underline-offset-4"
         >
-          {match[2]}
+          {match[3]}
         </a>,
       );
     }

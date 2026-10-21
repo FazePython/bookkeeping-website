@@ -1,10 +1,14 @@
 import { canonicalUrl, SITE_URL } from "@/lib/site";
+import { comparePublished } from "@/content/publishSchedule";
+import { publishedArticleData } from "virtual:published-articles";
 
 export type Article = {
   slug: string;
   title: string;
   description: string;
   author: string;
+  /** YYYY-MM-DD in America/Chicago. The build omits the article until this date. */
+  publishDate: string;
   datePublished: string;
   dateModified: string;
   body: string;
@@ -15,11 +19,6 @@ export type Article = {
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
-const modules = import.meta.glob("./articles/*.ts", { eager: true }) as Record<
-  string,
-  { article: Article }
->;
-
 function assertArticle(article: Article, source: string) {
   if (!SLUG.test(article.slug)) {
     throw new Error(`${source} has an invalid slug "${article.slug}"`);
@@ -27,31 +26,26 @@ function assertArticle(article: Article, source: string) {
   if (!article.title.trim() || !article.description.trim() || !article.author.trim() || !article.body.trim()) {
     throw new Error(`${source} is missing a title, description, author, or body`);
   }
-  if (!ISO_DATE.test(article.datePublished) || !ISO_DATE.test(article.dateModified)) {
+  if (!ISO_DATE.test(article.publishDate) || !ISO_DATE.test(article.datePublished) || !ISO_DATE.test(article.dateModified)) {
     throw new Error(`${source} dates must be YYYY-MM-DD`);
   }
 }
 
-export function allArticles(): Article[] {
-  return Object.entries(modules).map(([source, mod]) => {
-    assertArticle(mod.article, source);
-    return mod.article;
-  });
-}
-
-/** Articles that ship. `draft: true` files stay in the repo and are skipped. */
+/**
+ * Articles selected at build time. Future `publishDate` values are not in this list,
+ * so their text is not bundled. Drafts are skipped again here.
+ */
 export function publishedArticles(): Article[] {
-  const published = allArticles().filter((article) => article.draft !== true);
+  const published = publishedArticleData.filter((article) => article.draft !== true);
   const seen = new Set<string>();
   for (const article of published) {
+    assertArticle(article, article.slug);
     if (seen.has(article.slug)) {
       throw new Error(`Duplicate article slug "${article.slug}"`);
     }
     seen.add(article.slug);
   }
-  return published.sort(
-    (a, b) => b.datePublished.localeCompare(a.datePublished) || a.title.localeCompare(b.title),
-  );
+  return published.sort(comparePublished);
 }
 
 export function articlePath(slug: string) {
