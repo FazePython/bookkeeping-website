@@ -37,7 +37,7 @@ export default function Articles() {
                     <time dateTime={article.datePublished}>{formatArticleDate(article.datePublished)}</time>
                   </p>
                   <h2 className="font-display font-semibold text-2xl text-navy mb-2">
-                    <Link href={articlePath(article.slug)} className="hover:text-navy-dark">
+                    <Link href={`${articlePath(article.slug)}/`} className="hover:text-navy-dark">
                       {article.title}
                     </Link>
                   </h2>

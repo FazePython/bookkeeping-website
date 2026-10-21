@@ -286,6 +286,9 @@ type PrerenderModule = {
     title: string;
     description: string;
     ogType: "website" | "article";
+    author?: string;
+    publishedTime?: string;
+    modifiedTime?: string;
     jsonLd?: unknown;
     noindex?: boolean;
     file: string;
@@ -335,6 +338,15 @@ function vitePluginGithubPages(): Plugin {
             '<meta property="og:type" content="website" />',
             '<meta property="og:type" content="article" />',
           );
+          if (route.author && route.publishedTime && route.modifiedTime) {
+            const author = escapeHtml(route.author);
+            const published = escapeHtml(route.publishedTime);
+            const modified = escapeHtml(route.modifiedTime);
+            html = html.replace(
+              "</head>",
+              `    <meta name="author" content="${author}" />\n    <meta property="article:author" content="${author}" />\n    <meta property="article:published_time" content="${published}" />\n    <meta property="article:modified_time" content="${modified}" />\n  </head>`,
+            );
+          }
         }
         if (route.jsonLd) {
           const json = JSON.stringify(route.jsonLd).replace(/</g, "\\u003c");

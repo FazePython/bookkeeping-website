@@ -11,6 +11,10 @@ function upsertMeta(attr: "name" | "property", key: string, content: string) {
   el.setAttribute("content", content);
 }
 
+function removeMeta(attr: "name" | "property", key: string) {
+  document.head.querySelector(`meta[${attr}="${key}"]`)?.remove();
+}
+
 function upsertCanonical(href: string) {
   let el = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!el) {
@@ -26,12 +30,18 @@ export default function Seo({
   description,
   path,
   ogType = "website",
+  author,
+  publishedTime,
+  modifiedTime,
   jsonLd,
 }: {
   title: string;
   description: string;
   path: string;
   ogType?: "website" | "article";
+  author?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
   jsonLd?: object;
 }) {
   useEffect(() => {
@@ -57,6 +67,18 @@ export default function Seo({
     upsertMeta("name", "twitter:description", description);
     upsertCanonical(url);
 
+    if (author && publishedTime && modifiedTime) {
+      upsertMeta("name", "author", author);
+      upsertMeta("property", "article:author", author);
+      upsertMeta("property", "article:published_time", publishedTime);
+      upsertMeta("property", "article:modified_time", modifiedTime);
+    } else {
+      removeMeta("name", "author");
+      removeMeta("property", "article:author");
+      removeMeta("property", "article:published_time");
+      removeMeta("property", "article:modified_time");
+    }
+
     const id = "page-jsonld";
     const existing = document.getElementById(id);
     if (!jsonLd) {
@@ -68,7 +90,7 @@ export default function Seo({
     script.setAttribute("type", "application/ld+json");
     script.textContent = JSON.stringify(jsonLd);
     if (!existing) document.head.appendChild(script);
-  }, [title, description, path, ogType, jsonLd]);
+  }, [title, description, path, ogType, author, publishedTime, modifiedTime, jsonLd]);
 
   return null;
 }

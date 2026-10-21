@@ -10,6 +10,9 @@ export type PrerenderRoute = {
   title: string;
   description: string;
   ogType: "website" | "article";
+  author?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
   jsonLd?: unknown;
   noindex?: boolean;
   file: string;
@@ -34,6 +37,9 @@ export function prerenderRoutes(): PrerenderRoute[] {
     title: `${article.title} | SteadyBooks`,
     description: article.description,
     ogType: "article",
+    author: article.author,
+    publishedTime: article.datePublished,
+    modifiedTime: article.dateModified,
     jsonLd: articleJsonLd(article),
     file: pageFile(articlePath(article.slug)),
   }));

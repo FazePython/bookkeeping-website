@@ -4,6 +4,7 @@ export type Article = {
   slug: string;
   title: string;
   description: string;
+  author: string;
   datePublished: string;
   dateModified: string;
   body: string;
@@ -23,8 +24,8 @@ function assertArticle(article: Article, source: string) {
   if (!SLUG.test(article.slug)) {
     throw new Error(`${source} has an invalid slug "${article.slug}"`);
   }
-  if (!article.title.trim() || !article.description.trim() || !article.body.trim()) {
-    throw new Error(`${source} is missing a title, description, or body`);
+  if (!article.title.trim() || !article.description.trim() || !article.author.trim() || !article.body.trim()) {
+    throw new Error(`${source} is missing a title, description, author, or body`);
   }
   if (!ISO_DATE.test(article.datePublished) || !ISO_DATE.test(article.dateModified)) {
     throw new Error(`${source} dates must be YYYY-MM-DD`);
@@ -90,7 +91,7 @@ export function articleJsonLd(article: Article) {
     dateModified: article.dateModified,
     author: {
       "@type": "Person",
-      name: "Faizan Qureshi",
+      name: article.author,
     },
     publisher: {
       "@type": "Organization",

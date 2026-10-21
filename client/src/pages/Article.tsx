@@ -17,6 +17,9 @@ export default function Article({ params }: { params: { slug?: string } }) {
         description={article.description}
         path={articlePath(article.slug)}
         ogType="article"
+        author={article.author}
+        publishedTime={article.datePublished}
+        modifiedTime={article.dateModified}
         jsonLd={articleJsonLd(article)}
       />
       <Navbar />
