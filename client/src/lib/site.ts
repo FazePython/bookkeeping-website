@@ -52,7 +52,7 @@ export const ROUTE_SEO: RouteSeo[] = [
     path: "/privacy",
     title: "Privacy Policy | SteadyBooks",
     description:
-      "How SteadyBooks collects, uses, and deletes the name, email, phone number, and business name you send through the contact form. Last updated October 20, 2026.",
+      "How SteadyBooks collects, uses, and deletes the name, email, phone number, and business name you send through the contact form. Last updated October 22, 2026.",
   },
   {
     path: "/tax-ready",
