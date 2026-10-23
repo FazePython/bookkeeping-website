@@ -6,6 +6,7 @@ type Fields = {
   email: string;
   phone: string;
   businessName: string;
+  message: string;
 };
 
 const emptyFields: Fields = {
@@ -13,6 +14,7 @@ const emptyFields: Fields = {
   email: "",
   phone: "",
   businessName: "",
+  message: "",
 };
 
 /** Actions variable overrides the key in site.ts. An empty result keeps the mailto flow. */
@@ -27,6 +29,7 @@ function mailtoHref(fields: Fields) {
     `Email: ${fields.email}`,
     `Phone: ${fields.phone}`,
     `Business name: ${fields.businessName}`,
+    `Message: ${fields.message}`,
   ].join("\n");
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
     "SteadyBooks inquiry",
@@ -41,9 +44,10 @@ export default function ContactForm() {
   const [mailto, setMailto] = useState(`mailto:${CONTACT_EMAIL}`);
   const [sending, setSending] = useState(false);
 
-  const update = (key: keyof Fields) => (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFields((current) => ({ ...current, [key]: event.target.value }));
-  };
+  const update =
+    (key: keyof Fields) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFields((current) => ({ ...current, [key]: event.target.value }));
+    };
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -83,6 +87,7 @@ export default function ContactForm() {
           email: fields.email,
           phone: fields.phone,
           businessName: fields.businessName,
+          message: fields.message,
           botcheck: honey,
         }),
       });
@@ -188,6 +193,22 @@ export default function ContactForm() {
             className="w-full font-body text-sm px-4 py-3 rounded-lg border border-stone-dark bg-white focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy"
           />
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="contact-message" className="block font-body text-sm font-medium text-navy mb-1.5">
+          How can I help?
+        </label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows={4}
+          maxLength={2000}
+          placeholder="Tell me a little about your business and what you need help with (for example: monthly bookkeeping, catch-up, QuickBooks setup)."
+          value={fields.message}
+          onChange={update("message")}
+          className="w-full font-body text-sm px-4 py-3 rounded-lg border border-stone-dark bg-white focus:outline-none focus:ring-2 focus:ring-navy/20 focus:border-navy"
+        />
       </div>
 
       {notice && (
