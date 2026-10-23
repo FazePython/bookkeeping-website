@@ -5,6 +5,8 @@ export const CONTACT_EMAIL = "faizan@steady-books.com";
 export const CALENDLY_URL = "https://calendly.com/faizan-steady-books/30min";
 /** GoatCounter site code. VITE_GOATCOUNTER_CODE overrides this when set. */
 export const GOATCOUNTER_CODE = "steadybooks";
+/** Web3Forms access key. Public by design. VITE_WEB3FORMS_KEY overrides it when set. */
+export const WEB3FORMS_ACCESS_KEY = "1008c8da-6ae6-4058-ab27-139c89aeec6a";
 
 export const HOME_TITLE =
   "SteadyBooks | QuickBooks Certified ProAdvisor | 100% Remote, Serving Clients Across the US";

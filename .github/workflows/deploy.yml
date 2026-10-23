@@ -43,7 +43,7 @@ jobs:
         env:
           # Empty until Faizan adds the GitHub Actions variable. The site stays tracker-free.
           VITE_GOATCOUNTER_CODE: ${{ vars.VITE_GOATCOUNTER_CODE }}
-          # Empty until the Web3Forms access key variable exists. The contact form then uses mailto.
+          # Optional override. The form already has a public access key in the site code.
           VITE_WEB3FORMS_KEY: ${{ vars.VITE_WEB3FORMS_KEY }}
         run: pnpm run build
 

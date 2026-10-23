@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CONTACT_EMAIL } from "@/lib/site";
+import { CONTACT_EMAIL, WEB3FORMS_ACCESS_KEY } from "@/lib/site";
 
 type Fields = {
   name: string;
@@ -15,8 +15,8 @@ const emptyFields: Fields = {
   businessName: "",
 };
 
-/** Empty until the GitHub Actions variable is set. The form then keeps the mailto flow. */
-const WEB3FORMS_KEY = String(import.meta.env.VITE_WEB3FORMS_KEY ?? "").trim();
+/** Actions variable overrides the key in site.ts. An empty result keeps the mailto flow. */
+const WEB3FORMS_KEY = String(import.meta.env.VITE_WEB3FORMS_KEY || WEB3FORMS_ACCESS_KEY).trim();
 
 const SUCCESS_NOTICE = "Thanks, your message was sent. Faizan will reply within one business day.";
 const FAILURE_NOTICE = `Your message was not sent. Please email ${CONTACT_EMAIL} directly.`;
