@@ -17,7 +17,7 @@ export default function Privacy() {
           <h1 className="font-display font-bold text-4xl sm:text-5xl text-navy leading-tight mb-3">
             Privacy Policy
           </h1>
-          <p className="font-body text-sm text-navy/60 mb-10">Last updated: October 20, 2026</p>
+          <p className="font-body text-sm text-navy/60 mb-10">Last updated: October 22, 2026</p>
 
           <div className="space-y-8 font-body text-base text-navy/75 leading-relaxed">
             <section>
@@ -41,7 +41,11 @@ export default function Privacy() {
             <section>
               <h2 className="font-display font-semibold text-2xl text-navy mb-2">Who else sees it.</h2>
               <p>
-                Your information may be stored by the tools I use to run the website, my email, and scheduling (for example, my website host and Calendly). They store it on my behalf.
+                Messages sent through the contact form are delivered by email through Web3Forms (a third-party form service) to{" "}
+                <a className="underline text-navy" href={`mailto:${CONTACT_EMAIL}`}>
+                  {CONTACT_EMAIL}
+                </a>
+                , and used only to reply to the inquiry. Your information may also be stored by the tools I use to run the website, my email, and scheduling (for example, my website host and Calendly). They store it on my behalf.
               </p>
             </section>
             <section>
