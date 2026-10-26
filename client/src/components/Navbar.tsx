@@ -5,14 +5,19 @@ import ConsultLink from "@/components/ConsultLink";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Tax-Ready", href: "/tax-ready" },
+  { label: "About", href: "/about/" },
+  { label: "Services", href: "/services/" },
+  { label: "Tax-Ready", href: "/tax-ready/" },
   { label: "Pricing", href: "/#pricing" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Articles", href: "/articles" },
-  { label: "Contact", href: "/contact" },
+  { label: "How It Works", href: "/how-it-works/" },
+  { label: "Articles", href: "/articles/" },
+  { label: "Contact", href: "/contact/" },
 ];
+
+function pathForActive(href: string) {
+  const path = href.split("#")[0];
+  return path.length > 1 ? path.replace(/\/+$/, "") : path;
+}
 
 const ctaClass =
   "btn-fill font-body text-sm font-semibold bg-navy text-white px-5 py-2.5 rounded-lg hover:bg-navy-dark transition-colors shadow-sm hover:shadow-md";
@@ -53,12 +58,13 @@ export default function Navbar() {
 
           <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
             {navLinks.map((link) => {
+              const path = pathForActive(link.href);
               const active =
-                link.href === "/"
+                path === "/"
                   ? location === "/"
-                  : link.href === "/articles"
+                  : path === "/articles"
                     ? location === "/articles" || location.startsWith("/articles/")
-                    : location === link.href;
+                    : location === path;
               const className = `font-body text-sm font-medium transition-colors ${
                 active ? "text-navy" : "text-navy/60 hover:text-navy"
               }`;
@@ -79,7 +85,7 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="/contact"
+              href="/contact/"
               className="font-body text-sm font-medium text-navy/70 hover:text-navy transition-colors"
             >
               Get in Touch

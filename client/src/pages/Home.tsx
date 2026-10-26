@@ -205,7 +205,7 @@ export default function Home() {
               To hit the Feb 15 date, I need your bank and credit card statements and records promptly. Tax filing is not included.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/tax-ready" className={lightCta}>
+              <Link href="/tax-ready/" className={lightCta}>
                 See the tax-ready package
                 <ArrowRight className="w-4 h-4" />
               </Link>

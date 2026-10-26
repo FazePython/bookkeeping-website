@@ -37,7 +37,7 @@ export default function Article({ params }: { params: { slug?: string } }) {
           </h1>
           <ArticleBody markdown={article.body} />
           <p className="mt-10">
-            <Link href="/articles" className="font-body text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
+            <Link href="/articles/" className="font-body text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
               Back to articles
             </Link>
           </p>
