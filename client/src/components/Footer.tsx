@@ -5,15 +5,15 @@ import { CONTACT_EMAIL } from "@/lib/site";
 
 const pageLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "About", href: "/about/" },
+  { label: "Services", href: "/services/" },
   { label: "Pricing", href: "/#pricing" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Tax-Ready", href: "/tax-ready" },
-  { label: "1099s", href: "/1099" },
-  { label: "Articles", href: "/articles" },
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy Policy", href: "/privacy" },
+  { label: "How It Works", href: "/how-it-works/" },
+  { label: "Tax-Ready", href: "/tax-ready/" },
+  { label: "1099s", href: "/1099/" },
+  { label: "Articles", href: "/articles/" },
+  { label: "Contact", href: "/contact/" },
+  { label: "Privacy Policy", href: "/privacy/" },
 ];
 
 export default function Footer() {
@@ -78,7 +78,7 @@ export default function Footer() {
             SteadyBooks provides bookkeeping services only. Tax filing is not included.
           </p>
           <p className="font-body text-xs text-white/45">
-            <Link href="/privacy" className="hover:text-white transition-colors">
+            <Link href="/privacy/" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
             <span aria-hidden="true"> · </span>
