@@ -28,6 +28,18 @@ const articles = [
     datePublished: "2026-10-26",
   },
   {
+    slug: "year-end-bookkeeping-checklist",
+    title: "Year-End Bookkeeping Checklist for Small Businesses",
+    publishDate: "2026-11-03",
+    datePublished: "2026-11-03",
+  },
+  {
+    slug: "separate-business-and-personal-money",
+    title: "How to Separate Business and Personal Money (Guide)",
+    publishDate: "2026-11-05",
+    datePublished: "2026-11-05",
+  },
+  {
     slug: "sample-remote-bookkeeping",
     title: "Sample article for testing only",
     publishDate: "2026-10-21",
@@ -76,6 +88,46 @@ test("each publish date is excluded the day before and included on and after tha
     [
       "2026-10-27",
       [
+        "set-up-quickbooks-online-new-llc",
+        "bookkeeping-for-freelancers-1099-contractors",
+        "catch-up-bookkeeping-before-tax-time",
+        "in-house-bookkeeper-vs-outsourced-bookkeeping",
+      ],
+    ],
+    [
+      "2026-11-02",
+      [
+        "set-up-quickbooks-online-new-llc",
+        "bookkeeping-for-freelancers-1099-contractors",
+        "catch-up-bookkeeping-before-tax-time",
+        "in-house-bookkeeper-vs-outsourced-bookkeeping",
+      ],
+    ],
+    [
+      "2026-11-03",
+      [
+        "year-end-bookkeeping-checklist",
+        "set-up-quickbooks-online-new-llc",
+        "bookkeeping-for-freelancers-1099-contractors",
+        "catch-up-bookkeeping-before-tax-time",
+        "in-house-bookkeeper-vs-outsourced-bookkeeping",
+      ],
+    ],
+    [
+      "2026-11-04",
+      [
+        "year-end-bookkeeping-checklist",
+        "set-up-quickbooks-online-new-llc",
+        "bookkeeping-for-freelancers-1099-contractors",
+        "catch-up-bookkeeping-before-tax-time",
+        "in-house-bookkeeper-vs-outsourced-bookkeeping",
+      ],
+    ],
+    [
+      "2026-11-05",
+      [
+        "separate-business-and-personal-money",
+        "year-end-bookkeeping-checklist",
         "set-up-quickbooks-online-new-llc",
         "bookkeeping-for-freelancers-1099-contractors",
         "catch-up-bookkeeping-before-tax-time",
