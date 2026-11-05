@@ -40,6 +40,12 @@ const articles = [
     datePublished: "2026-11-05",
   },
   {
+    slug: "what-monthly-bookkeeping-includes",
+    title: "What Monthly Bookkeeping Includes and Costs",
+    publishDate: "2026-11-10",
+    datePublished: "2026-11-10",
+  },
+  {
     slug: "sample-remote-bookkeeping",
     title: "Sample article for testing only",
     publishDate: "2026-10-21",
@@ -126,6 +132,29 @@ test("each publish date is excluded the day before and included on and after tha
     [
       "2026-11-05",
       [
+        "separate-business-and-personal-money",
+        "year-end-bookkeeping-checklist",
+        "set-up-quickbooks-online-new-llc",
+        "bookkeeping-for-freelancers-1099-contractors",
+        "catch-up-bookkeeping-before-tax-time",
+        "in-house-bookkeeper-vs-outsourced-bookkeeping",
+      ],
+    ],
+    [
+      "2026-11-09",
+      [
+        "separate-business-and-personal-money",
+        "year-end-bookkeeping-checklist",
+        "set-up-quickbooks-online-new-llc",
+        "bookkeeping-for-freelancers-1099-contractors",
+        "catch-up-bookkeeping-before-tax-time",
+        "in-house-bookkeeper-vs-outsourced-bookkeeping",
+      ],
+    ],
+    [
+      "2026-11-10",
+      [
+        "what-monthly-bookkeeping-includes",
         "separate-business-and-personal-money",
         "year-end-bookkeeping-checklist",
         "set-up-quickbooks-online-new-llc",
