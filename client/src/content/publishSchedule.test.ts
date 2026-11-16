@@ -46,6 +46,18 @@ const articles = [
     datePublished: "2026-11-10",
   },
   {
+    slug: "bank-reconciliation-explained",
+    title: "Bank Reconciliation Explained in Plain English",
+    publishDate: "2026-11-17",
+    datePublished: "2026-11-17",
+  },
+  {
+    slug: "how-to-read-your-profit-and-loss",
+    title: "How to Read Your Profit and Loss Statement",
+    publishDate: "2026-11-19",
+    datePublished: "2026-11-19",
+  },
+  {
     slug: "sample-remote-bookkeeping",
     title: "Sample article for testing only",
     publishDate: "2026-10-21",
@@ -154,6 +166,58 @@ test("each publish date is excluded the day before and included on and after tha
     [
       "2026-11-10",
       [
+        "what-monthly-bookkeeping-includes",
+        "separate-business-and-personal-money",
+        "year-end-bookkeeping-checklist",
+        "set-up-quickbooks-online-new-llc",
+        "bookkeeping-for-freelancers-1099-contractors",
+        "catch-up-bookkeeping-before-tax-time",
+        "in-house-bookkeeper-vs-outsourced-bookkeeping",
+      ],
+    ],
+    [
+      "2026-11-16",
+      [
+        "what-monthly-bookkeeping-includes",
+        "separate-business-and-personal-money",
+        "year-end-bookkeeping-checklist",
+        "set-up-quickbooks-online-new-llc",
+        "bookkeeping-for-freelancers-1099-contractors",
+        "catch-up-bookkeeping-before-tax-time",
+        "in-house-bookkeeper-vs-outsourced-bookkeeping",
+      ],
+    ],
+    [
+      "2026-11-17",
+      [
+        "bank-reconciliation-explained",
+        "what-monthly-bookkeeping-includes",
+        "separate-business-and-personal-money",
+        "year-end-bookkeeping-checklist",
+        "set-up-quickbooks-online-new-llc",
+        "bookkeeping-for-freelancers-1099-contractors",
+        "catch-up-bookkeeping-before-tax-time",
+        "in-house-bookkeeper-vs-outsourced-bookkeeping",
+      ],
+    ],
+    [
+      "2026-11-18",
+      [
+        "bank-reconciliation-explained",
+        "what-monthly-bookkeeping-includes",
+        "separate-business-and-personal-money",
+        "year-end-bookkeeping-checklist",
+        "set-up-quickbooks-online-new-llc",
+        "bookkeeping-for-freelancers-1099-contractors",
+        "catch-up-bookkeeping-before-tax-time",
+        "in-house-bookkeeper-vs-outsourced-bookkeeping",
+      ],
+    ],
+    [
+      "2026-11-19",
+      [
+        "how-to-read-your-profit-and-loss",
+        "bank-reconciliation-explained",
         "what-monthly-bookkeeping-includes",
         "separate-business-and-personal-money",
         "year-end-bookkeeping-checklist",
