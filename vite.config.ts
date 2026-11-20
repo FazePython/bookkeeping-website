@@ -392,6 +392,54 @@ type ArticleModule = {
  * publishDate is on or before today in America/Chicago. Future files are not imported,
  * so their text, titles, and slugs stay out of the client and SSR bundles.
  */
+const RELATED_ARTICLES: Record<string, string[]> = {
+  "in-house-bookkeeper-vs-outsourced-bookkeeping": [
+    "what-monthly-bookkeeping-includes",
+    "separate-business-and-personal-money",
+    "catch-up-bookkeeping-before-tax-time",
+  ],
+  "catch-up-bookkeeping-before-tax-time": [
+    "year-end-bookkeeping-checklist",
+    "what-monthly-bookkeeping-includes",
+    "bank-reconciliation-explained",
+  ],
+  "bookkeeping-for-freelancers-1099-contractors": [
+    "separate-business-and-personal-money",
+    "what-monthly-bookkeeping-includes",
+    "catch-up-bookkeeping-before-tax-time",
+  ],
+  "set-up-quickbooks-online-new-llc": [
+    "separate-business-and-personal-money",
+    "bank-reconciliation-explained",
+    "what-monthly-bookkeeping-includes",
+  ],
+  "year-end-bookkeeping-checklist": [
+    "catch-up-bookkeeping-before-tax-time",
+    "bank-reconciliation-explained",
+    "what-monthly-bookkeeping-includes",
+  ],
+  "separate-business-and-personal-money": [
+    "set-up-quickbooks-online-new-llc",
+    "what-monthly-bookkeeping-includes",
+    "year-end-bookkeeping-checklist",
+  ],
+  "what-monthly-bookkeeping-includes": [
+    "in-house-bookkeeper-vs-outsourced-bookkeeping",
+    "catch-up-bookkeeping-before-tax-time",
+    "how-to-read-your-profit-and-loss",
+  ],
+  "bank-reconciliation-explained": [
+    "year-end-bookkeeping-checklist",
+    "catch-up-bookkeeping-before-tax-time",
+    "what-monthly-bookkeeping-includes",
+  ],
+  "how-to-read-your-profit-and-loss": [
+    "bank-reconciliation-explained",
+    "separate-business-and-personal-money",
+    "what-monthly-bookkeeping-includes",
+  ],
+};
+
 function vitePluginPublishedArticles(): Plugin {
   const resolvedId = `\0${PUBLISHED_ARTICLES_ID}`;
   return {
@@ -417,7 +465,18 @@ function vitePluginPublishedArticles(): Plugin {
         loaded.push(mod.article);
       }
       const published = selectPublished(loaded, today);
-      return `export const publishedArticleData = ${JSON.stringify(published)};\n`;
+      const live = new Set(published.map((article) => article.slug));
+      const withRelated = published.map((article) => {
+        const preferred = (RELATED_ARTICLES[article.slug ?? ""] ?? []).filter((slug) => live.has(slug));
+        for (const other of published) {
+          if (preferred.length >= 3) break;
+          if (other.slug && other.slug !== article.slug && !preferred.includes(other.slug)) {
+            preferred.push(other.slug);
+          }
+        }
+        return { ...article, relatedSlugs: preferred.slice(0, 3) };
+      });
+      return `export const publishedArticleData = ${JSON.stringify(withRelated)};\n`;
     },
   };
 }

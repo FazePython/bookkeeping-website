@@ -110,7 +110,7 @@ That last point matters. Many freelancers keep a separate savings account for ta
 - [ ] W-9s on file for anyone you pay
 - [ ] A monthly 30-minute review on your calendar
 
-If you pay contractors yourself, or want to know what the forms you receive mean, see [Form 1099-NEC explained](https://www.steady-books.com/1099/).
+If you pay contractors yourself, or want to know what the forms you receive mean, see [Form 1099-NEC explained](/1099/).
 
 ---
 

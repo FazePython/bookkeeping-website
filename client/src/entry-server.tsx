@@ -1,6 +1,6 @@
 import { renderToString } from "react-dom/server";
 import App from "./App";
-import { articleJsonLd, articlePath, publishedArticles } from "./content/articles";
+import { articleDocumentTitle, articleJsonLd, articlePath, publishedArticles } from "./content/articles";
 import { canonicalUrl, ROUTE_SEO } from "./lib/site";
 
 export type PrerenderRoute = {
@@ -34,7 +34,7 @@ export function prerenderRoutes(): PrerenderRoute[] {
 
   const articles: PrerenderRoute[] = publishedArticles().map((article) => ({
     path: articlePath(article.slug),
-    title: `${article.title} | SteadyBooks`,
+    title: articleDocumentTitle(article.title),
     description: article.description,
     ogType: "article",
     author: article.author,
