@@ -4,7 +4,7 @@ export const article: Article = {
   slug: "how-to-read-your-profit-and-loss",
   title: "How to Read Your Profit and Loss Statement",
   description:
-    "How to read your profit and loss statement: income, expenses and net profit, common mix-ups, and what your P&L can and can't tell you.",
+    "How to read your profit and loss statement: income, expenses, and net profit, plus common mix-ups and what a P&L can and can't tell a small business.",
   author: "Faizan Qureshi",
   publishDate: "2026-11-19",
   datePublished: "2026-11-19",

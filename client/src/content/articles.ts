@@ -14,6 +14,8 @@ export type Article = {
   body: string;
   /** Drafts are omitted from pages, prerendered HTML, and the sitemap. */
   draft?: boolean;
+  /** Published slugs chosen at build time. Future articles are not included. */
+  relatedSlugs?: string[];
 };
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -50,6 +52,12 @@ export function publishedArticles(): Article[] {
 
 export function articlePath(slug: string) {
   return `/articles/${slug}`;
+}
+
+/** Document title stays near 50–60 characters. The visible H1 stays the approved headline. */
+export function articleDocumentTitle(title: string) {
+  const branded = `${title} | SteadyBooks`;
+  return branded.length <= 60 ? branded : title;
 }
 
 const MONTHS = [
@@ -92,6 +100,7 @@ export function articleJsonLd(article: Article) {
       name: "SteadyBooks",
       url: `${SITE_URL}/`,
     },
+    url: canonicalUrl(articlePath(article.slug)),
     mainEntityOfPage: canonicalUrl(articlePath(article.slug)),
     image: `${SITE_URL}/og-image-v2.png`,
   };

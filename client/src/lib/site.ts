@@ -8,11 +8,10 @@ export const GOATCOUNTER_CODE = "steadybooks";
 /** Web3Forms access key. Public by design. VITE_WEB3FORMS_KEY overrides it when set. */
 export const WEB3FORMS_ACCESS_KEY = "1008c8da-6ae6-4058-ab27-139c89aeec6a";
 
-export const HOME_TITLE =
-  "SteadyBooks | QuickBooks Certified ProAdvisor | 100% Remote, Serving Clients Across the US";
+export const HOME_TITLE = "Remote Bookkeeping by a QuickBooks Certified ProAdvisor";
 
 export const HOME_DESCRIPTION =
-  "100% remote, serving clients across the US. Bookkeeping for freelancers, new LLCs, and small businesses. Catch-up, cleanup, and monthly books. Get tax-ready by Feb 15. Free consult.";
+  "100% remote, serving clients across the US. Bookkeeping for freelancers, new LLCs, and small businesses. Catch-up, monthly books, tax-preparer-ready records.";
 
 export type RouteSeo = {
   path: string;
@@ -28,51 +27,51 @@ export const ROUTE_SEO: RouteSeo[] = [
   },
   {
     path: "/about",
-    title: "About Faizan Qureshi | SteadyBooks",
+    title: "About Faizan Qureshi | QuickBooks Certified ProAdvisor",
     description:
       "Faizan Qureshi is a QuickBooks Certified ProAdvisor. He started SteadyBooks in October 2026. SteadyBooks is 100% remote, serving clients across the US.",
   },
   {
     path: "/services",
-    title: "Bookkeeping Services | SteadyBooks",
+    title: "Bookkeeping Services for Small Businesses | SteadyBooks",
     description:
-      "Monthly bookkeeping, catch-up and cleanup, financial reports, QuickBooks Online setup, tax-preparer-ready books, and payroll support. Tax filing is not included.",
+      "Monthly bookkeeping, catch-up and cleanup, reports, and QuickBooks Online setup. Tax-preparer-ready books. 100% remote, serving clients across the US.",
   },
   {
     path: "/how-it-works",
-    title: "How Bookkeeping with SteadyBooks Works",
+    title: "How Bookkeeping with SteadyBooks Works, 100% Remote",
     description:
       "Book a free consult, then catch-up, cleanup, or a flat monthly plan. SteadyBooks provides bookkeeping only. Tax filing and tax advice are not included.",
   },
   {
     path: "/contact",
-    title: "Contact SteadyBooks | Remote Bookkeeping",
+    title: "Contact SteadyBooks | 100% Remote Bookkeeping Help",
     description:
-      "Email faizan@steady-books.com or book a free 30-minute consult.",
+      "100% remote, serving clients across the US. Email faizan@steady-books.com or book a free 30-minute consult about monthly books, catch-up, or cleanup.",
   },
   {
     path: "/privacy",
-    title: "Privacy Policy | SteadyBooks",
+    title: "SteadyBooks Privacy Policy | How Inquiry Details Are Used",
     description:
       "How SteadyBooks collects, uses, and deletes the name, email, phone number, and business name you send through the contact form. Last updated October 22, 2026.",
   },
   {
     path: "/tax-ready",
-    title: "Tax-Ready Books by Feb 15 | SteadyBooks",
+    title: "Tax-Ready Bookkeeping by February 15 | SteadyBooks",
     description:
-      "Catch-up bookkeeping and clean, tax-preparer-ready year-end books by February 15. $750 for the year-end package, plus $150 for each month behind. Book a free consult.",
+      "100% remote, serving clients across the US. Catch-up bookkeeping and tax-preparer-ready year-end books by February 15 for small businesses. Book a free consult.",
   },
   {
     path: "/1099",
-    title: "Form 1099-NEC Explained | SteadyBooks",
+    title: "Form 1099-NEC Explained for Small Businesses | SteadyBooks",
     description:
-      "Plain-language bookkeeping notes on Form 1099-NEC for small businesses and freelancers who pay contractors: who generally files, the late-January deadline, and W-9s.",
+      "Plain-language notes on Form 1099-NEC for small businesses and freelancers who pay contractors: who generally files, the late-January deadline, and W-9s.",
   },
   {
     path: "/articles",
-    title: "Articles | SteadyBooks",
+    title: "Bookkeeping Articles for Small Businesses | SteadyBooks",
     description:
-      "100% remote, serving clients across the US. Bookkeeping notes from SteadyBooks for freelancers, new LLCs, and small businesses.",
+      "100% remote, serving clients across the US. Notes on catch-up, monthly books, QuickBooks Online, reconciliations, and tax-preparer-ready records.",
   },
 ];
 
