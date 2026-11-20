@@ -56,8 +56,8 @@ export default function TaxReady() {
           <h2 className="font-display font-semibold text-2xl text-navy mb-4">The offer</h2>
           <ul className="space-y-3">
             {[
-              "$750 for the year-end package",
-              "$150 for each month your books are behind",
+              "$495 for the year-end package",
+              "$95 for each month your books are behind",
               "50% upfront to reserve, with the balance due on delivery",
               "Book early to make sure your books are ready by Feb 15.",
             ].map((item) => (

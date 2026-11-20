@@ -34,7 +34,7 @@ A part-time hire lowers the wage, but most of the other costs and the management
 
 Outsourced bookkeeping is usually a flat monthly fee based on how many accounts and transactions you have. Prices vary widely by provider and by how much work your books need, so get a written quote that spells out what's included.
 
-For reference, SteadyBooks' plans are $300, $500 and $800 per month. You don't pay payroll taxes or benefits, and software costs depend on your setup.
+For reference, SteadyBooks' plans are $195, $325 and $520 per month. You don't pay payroll taxes or benefits, and software costs depend on your setup.
 
 **Bottom line on cost:** if your books don't need 20 to 40 hours a week of work, you're likely paying for time you don't use with an in-house hire.
 

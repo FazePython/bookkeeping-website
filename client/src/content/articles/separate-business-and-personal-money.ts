@@ -97,7 +97,7 @@ Most single-owner LLC owners transfer money to their personal account and record
 
 Separating your money is the foundation for everything else in your books. Once it's in place, reconciling, reporting and year-end get much easier.
 
-SteadyBooks offers monthly bookkeeping plans at $300, $500 and $800 a month, and Tax-Ready by Feb 15 for books that are behind. We keep your books clean and tax-preparer-ready, and we don't file taxes.
+SteadyBooks offers monthly bookkeeping plans at $195, $325 and $520 a month, and Tax-Ready by Feb 15 for books that are behind. We keep your books clean and tax-preparer-ready, and we don't file taxes.
 
 ---
 
