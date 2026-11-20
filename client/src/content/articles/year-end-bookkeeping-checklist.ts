@@ -119,7 +119,7 @@ Not at SteadyBooks. We get your books tax-preparer-ready, and your tax preparer 
 
 Don't try to do it all in one weekend. Pick one account, reconcile one month, and keep going in order. Progress adds up faster than you'd expect.
 
-If you'd rather hand it off, SteadyBooks offers [Tax-Ready by Feb 15](/tax-ready/): a flat $750 plus $150 for each month behind, with 50% paid upfront. Your books are delivered tax-preparer-ready by Feb 15. We work alongside your tax preparer and don't file taxes.
+If you'd rather hand it off, SteadyBooks offers [Tax-Ready by Feb 15](/tax-ready/): a flat $495 plus $95 for each month behind, with 50% paid upfront. Your books are delivered tax-preparer-ready by Feb 15. We work alongside your tax preparer and don't file taxes.
 
 ---
 

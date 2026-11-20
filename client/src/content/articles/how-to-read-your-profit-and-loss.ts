@@ -92,7 +92,7 @@ A balance sheet as of the same ending date, and an accounts receivable or payabl
 
 ## Ready for reports you can actually read?
 
-A P&L is useful when the categories are clean, the accounts are reconciled and you know which lines are not supposed to be there. If you'd like help getting there, monthly plans are $300, $500 or $800, and founding clients get 15% off for their first 6 months.
+A P&L is useful when the categories are clean, the accounts are reconciled and you know which lines are not supposed to be there. If you'd like help getting there, monthly plans are $195, $325 or $520, and founding clients get 15% off for their first 6 months.
 
 ---
 

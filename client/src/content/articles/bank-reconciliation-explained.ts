@@ -92,7 +92,7 @@ Yes. Bank and credit card reconciliation is part of every monthly plan. See [wha
 
 A bank reconciliation has a clear finish line: the difference is $0.00. Do it every month, for every account, and your reports stay tax-preparer-ready. SteadyBooks does not file taxes. We keep the records your tax preparer needs organized.
 
-If you'd rather hand this off, monthly plans are $300, $500 or $800, and founding clients get 15% off for their first 6 months.
+If you'd rather hand this off, monthly plans are $195, $325 or $520, and founding clients get 15% off for their first 6 months.
 
 ---
 

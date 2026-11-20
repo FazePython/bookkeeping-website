@@ -41,11 +41,11 @@ export default function HowItWorks() {
               I'll catch up your books, reconcile your accounts, and hand you clean, tax-preparer-ready year-end reports by February 15.
             </p>
             <ul className="space-y-2 font-body text-sm text-navy/75 leading-relaxed">
-              <li>$750 for the year-end tax-ready package</li>
-              <li>Plus $150 catch-up add-on for each month your books are behind</li>
+              <li>$495 for the year-end tax-ready package</li>
+              <li>Plus $95 catch-up add-on for each month your books are behind</li>
               <li>50% upfront to reserve your spot, with the balance due on delivery</li>
               <li>Book early to make sure your books are ready by Feb 15.</li>
-              <li>Catch-up bookkeeping: $150 for each month behind</li>
+              <li>Catch-up bookkeeping: $95 for each month behind</li>
               <li>Cleanup, for books that exist but are messy or wrong: $200 per month of records</li>
               <li>Catch-up and cleanup projects have a $500 minimum, with 50% upfront</li>
             </ul>
@@ -56,7 +56,7 @@ export default function HowItWorks() {
           <article>
             <h2 className="font-display font-semibold text-2xl text-navy mb-3">3. Stay current each month</h2>
             <p className="font-body text-base text-navy/75 leading-relaxed">
-              Every plan includes transaction categorization, bank and credit card reconciliation, and monthly financial reports. Monthly clients also get the year-end package at no extra cost. Starter is $300/month, Growth is $500/month, and Plus is $800/month.
+              Every plan includes transaction categorization, bank and credit card reconciliation, and monthly financial reports. Monthly clients also get the year-end package at no extra cost. Starter is $195/month, Growth is $325/month, and Plus is $520/month.
             </p>
           </article>
           <p className="font-body text-sm text-navy/80 italic">

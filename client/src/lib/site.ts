@@ -60,7 +60,7 @@ export const ROUTE_SEO: RouteSeo[] = [
     path: "/tax-ready",
     title: "Tax-Ready Books by Feb 15 | SteadyBooks",
     description:
-      "Catch-up bookkeeping and clean, tax-preparer-ready year-end books by February 15. $750 for the year-end package, plus $150 for each month behind. Book a free consult.",
+      "Catch-up bookkeeping and clean, tax-preparer-ready year-end books by February 15. $495 for the year-end package, plus $95 for each month behind. Book a free consult.",
   },
   {
     path: "/1099",

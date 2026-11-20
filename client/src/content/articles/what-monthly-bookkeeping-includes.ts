@@ -4,12 +4,12 @@ export const article: Article = {
   slug: "what-monthly-bookkeeping-includes",
   title: "What Monthly Bookkeeping Includes and Costs",
   description:
-    "What monthly bookkeeping includes and costs: categorization, reconciliations, reports, and SteadyBooks Starter, Growth and Plus plans at $300-$800.",
+    "What monthly bookkeeping includes and costs: categorization, reconciliations, reports, and SteadyBooks Starter, Growth and Plus plans at $195-$520.",
   author: "Faizan Qureshi",
   publishDate: "2026-11-10",
   datePublished: "2026-11-10",
   dateModified: "2026-11-10",
-  body: `If you've ever looked at a bookkeeping quote and wondered what you're actually paying for, you're not alone. The short answer: monthly bookkeeping means someone categorizes your transactions, reconciles your bank and credit card accounts, and sends you clear financial reports every month. At SteadyBooks, that work is a flat fee of $300, $500 or $800 a month, based on how many accounts and transactions you have.
+  body: `If you've ever looked at a bookkeeping quote and wondered what you're actually paying for, you're not alone. The short answer: monthly bookkeeping means someone categorizes your transactions, reconciles your bank and credit card accounts, and sends you clear financial reports every month. At SteadyBooks, that work is a flat fee of $195, $325 or $520 a month, based on how many accounts and transactions you have.
 
 This article covers what monthly bookkeeping usually includes, how SteadyBooks' three plans break down, and how to pick a fit. It is bookkeeping guidance, not tax advice. Questions about deductions, estimated payments or what you owe belong with your tax preparer.
 
@@ -37,11 +37,11 @@ Every SteadyBooks monthly plan includes:
 
 That year-end package is the same cleanup and reporting work we offer as Tax-Ready by Feb 15 for clients who aren't on a monthly plan. Monthly clients get it included. You keep ownership of your QuickBooks Online file and logins.
 
-## The three plans: $300, $500 and $800
+## The three plans: $195, $325 and $520
 
 Plans are sized by monthly transaction volume and by how many bank and credit card accounts you need reconciled. If your volume grows past a plan's limits, we talk before anything changes. There are no surprise charges.
 
-### Starter — $300/month
+### Starter — $195/month
 
 - Up to 75 transactions per month
 - Up to 3 bank or credit card accounts
@@ -50,7 +50,7 @@ Plans are sized by monthly transaction volume and by how many bank and credit ca
 
 Starter fits freelancers and very small businesses with a simple setup: one checking account, maybe one card, and a modest number of transactions.
 
-### Growth — $500/month
+### Growth — $325/month
 
 - Up to 200 transactions per month
 - Up to 6 bank or credit card accounts
@@ -59,7 +59,7 @@ Starter fits freelancers and very small businesses with a simple setup: one chec
 
 Growth fits businesses with a few more accounts or a busier month-to-month flow.
 
-### Plus — $800/month
+### Plus — $520/month
 
 - Up to 400 transactions per month
 - Up to 10 bank or credit card accounts
@@ -73,7 +73,7 @@ Plus fits higher volume and owners who want a regular conversation about the rep
 
 | | Starter | Growth | Plus |
 |---|---|---|---|
-| Price | $300/month | $500/month | $800/month |
+| Price | $195/month | $325/month | $520/month |
 | Transactions per month | Up to 75 | Up to 200 | Up to 400 |
 | Bank and credit card accounts | Up to 3 | Up to 6 | Up to 10 |
 | Monthly reconciliation and reports | Yes | Yes | Yes |
@@ -106,9 +106,9 @@ Ask on the consult which apply. None of them change the core monthly work above.
 
 SteadyBooks is still early, so founding clients get **15% off** any monthly plan for their first 6 months:
 
-- Starter: **$255/month** (regularly $300)
-- Growth: **$425/month** (regularly $500)
-- Plus: **$680/month** (regularly $800)
+- Starter: **$165.75/month** (regularly $195)
+- Growth: **$276.25/month** (regularly $325)
+- Plus: **$442/month** (regularly $520)
 
 After those 6 months, the regular plan rate applies.
 
@@ -128,7 +128,7 @@ Yes. If your volume grows or shrinks, we move you to the plan that fits.
 
 ## Ready for clear monthly books?
 
-Monthly bookkeeping should feel predictable: same work every month, clear reports and a flat fee you can plan around. SteadyBooks' Starter, Growth and Plus plans at $300, $500 and $800 are built that way, with the year-end package included and tax filing left to your tax preparer.
+Monthly bookkeeping should feel predictable: same work every month, clear reports and a flat fee you can plan around. SteadyBooks' Starter, Growth and Plus plans at $195, $325 and $520 are built that way, with the year-end package included and tax filing left to your tax preparer.
 
 ---
 

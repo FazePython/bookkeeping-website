@@ -95,7 +95,7 @@ It depends on how many months you're behind, how many accounts you have and how 
 
 Catching up yourself makes sense if you're only a month or two behind, you have few accounts, and you enjoy the detail work. Getting help makes sense if you're many months behind, accounts won't reconcile, or your time is better spent running the business.
 
-If you want a done-for-you option with a fixed deadline, SteadyBooks offers [Tax-Ready by Feb 15](https://www.steady-books.com/tax-ready/). It's a flat $750 plus $150 for each month behind, with 50% paid upfront. For example, six months behind would be $750 + $900 = $1,650. Your books are delivered tax-preparer-ready by Feb 15. SteadyBooks doesn't file taxes. The goal is to hand your tax preparer clean, reconciled books so they can do their part.
+If you want a done-for-you option with a fixed deadline, SteadyBooks offers [Tax-Ready by Feb 15](https://www.steady-books.com/tax-ready/). It's a flat $495 plus $95 for each month behind, with 50% paid upfront. For example, six months behind would be $495 + $570 = $1,065. Your books are delivered tax-preparer-ready by Feb 15. SteadyBooks doesn't file taxes. The goal is to hand your tax preparer clean, reconciled books so they can do their part.
 
 ## Quick recap
 

@@ -59,7 +59,7 @@ const services = [
 const plans = [
   {
     name: "Starter",
-    price: "$300/month",
+    price: "$195/month",
     transactions: "Up to 75",
     accounts: "Up to 3",
     reports: "✔",
@@ -68,7 +68,7 @@ const plans = [
   },
   {
     name: "Growth",
-    price: "$500/month",
+    price: "$325/month",
     transactions: "Up to 200",
     accounts: "Up to 6",
     reports: "✔",
@@ -77,7 +77,7 @@ const plans = [
   },
   {
     name: "Plus",
-    price: "$800/month",
+    price: "$520/month",
     transactions: "Up to 400",
     accounts: "Up to 10",
     reports: "✔",
@@ -191,8 +191,8 @@ export default function Home() {
             </p>
             <ul className="space-y-3 mb-6">
               {[
-                "$750 for the year-end tax-ready package",
-                "Plus $150 catch-up add-on for each month your books are behind",
+                "$495 for the year-end tax-ready package",
+                "Plus $95 catch-up add-on for each month your books are behind",
                 "50% upfront to reserve your spot, with the balance due on delivery",
                 "Book early to make sure your books are ready by Feb 15.",
               ].map((item) => (
@@ -326,7 +326,7 @@ export default function Home() {
             <div>
               <h3 className="font-display font-semibold text-2xl text-navy mb-4">One-time projects</h3>
               <ul className="space-y-3 font-body text-sm text-navy/75 leading-relaxed">
-                <li>Catch-up bookkeeping: $150 for each month behind</li>
+                <li>Catch-up bookkeeping: $95 for each month behind</li>
                 <li>Cleanup, for books that exist but are messy or wrong: $200 per month of records</li>
                 <li>Catch-up and cleanup projects have a $500 minimum, with 50% upfront</li>
                 <li>QuickBooks Online setup: $350, or $250 with a monthly plan</li>
@@ -337,7 +337,7 @@ export default function Home() {
               <ul className="space-y-3 font-body text-sm text-navy/75 leading-relaxed">
                 <li>Payroll support: $50/month plus $10 per employee, with a one-time $250 setup fee</li>
                 <li>1099 preparation: $75, plus $15 per form</li>
-                <li>Year-end package for clients not on a monthly plan: from $750</li>
+                <li>Year-end package for clients not on a monthly plan: from $495</li>
                 <li>Hourly work for anything outside a plan: $85/hour</li>
               </ul>
             </div>
@@ -357,9 +357,9 @@ export default function Home() {
             SteadyBooks is brand new, which means every early client gets my full attention. As a thank-you for trusting me early, founding clients get <strong>15% off monthly fees for their first 6 months.</strong>
           </p>
           <ul className="space-y-2 font-body text-sm text-navy/80 mb-8">
-            <li>Starter: <strong>$255/month</strong> (regularly $300)</li>
-            <li>Growth: <strong>$425/month</strong> (regularly $500)</li>
-            <li>Plus: <strong>$680/month</strong> (regularly $800)</li>
+            <li>Starter: <strong>$165.75/month</strong> (regularly $195)</li>
+            <li>Growth: <strong>$276.25/month</strong> (regularly $325)</li>
+            <li>Plus: <strong>$442/month</strong> (regularly $520)</li>
           </ul>
           <ConsultLink className={primaryCta}>
             Claim a founding-client spot
